@@ -1,13 +1,21 @@
-import React from 'react';
-import LoginForm from './LoginForm';
+import React, { useState } from 'react';
+import Login from './Login';
+
 
 const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
   return (
-    <div>
-      <h1>RescueMe</h1>
-      <LoginForm />
-      
-      {/* placeholder for more components */}
+    <div className="App">
+      {isLoggedIn ? (
+        <h2>Welcome to the Dog Adoption App!</h2>
+      ) : (
+        <Login onLogin={handleLogin} />
+      )}
     </div>
   );
 };

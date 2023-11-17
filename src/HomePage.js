@@ -1,55 +1,87 @@
-import React, { useState, useEffect } from 'react';
-import { searchDogs, getDogBreeds } from './api'; // Importing API functions
-import DogCard from './DogCard';
+import React, { useState, useEffect } from "react";
+import { fetchDogsByIds, fetchLocations, getDogBreeds, matchDogs, searchDogs, searchLocations } from './api';
 
 const HomePage = () => {
-  const [searchResults, setSearchResults] = useState([]);
   const [breeds, setBreeds] = useState([]);
-  const [selectedBreed, setSelectedBreed] = useState('');
+  const [searchResult, setSearchResult] = useState({});
+  const [dogDetails, setDogDetails] = useState({});
+  const [matchedDog, setMatchedDog] = useState({});
+  const [locations, setLocations] = useState([]);
+  const [searchLocationResult, setSearchLocationResult] = useState({});
 
-  // Fetch all possible dog breeds when the component mounts
   useEffect(() => {
-    const fetchBreeds = async () => {
-      const breedData = await getDogBreeds();
-      if (breedData) {
-        setBreeds(breedData);
-      }
-    };
+    // Fetch dog breeds
+    getDogBreeds().then((breeds) => setBreeds(breeds));
 
-    fetchBreeds();
+    // Search dogs
+    const searchParams = {
+      breeds: ["Labrador Retriever"],
+      zipCodes: ["12345"],
+      ageMin: 2,
+      ageMax: 5,
+      size: 10,
+    };
+    searchDogs(searchParams).then((result) => setSearchResult(result));
+
+    // Fetch dog details by ID
+    const dogId = "abc123";
+    fetchDogsByIds([dogId]).then((dogDetails) => setDogDetails(dogDetails[0]));
+
+    // Fetch dogs by IDs
+    const dogIds = ["abc123", "def456"];
+    fetchDogsByIds(dogIds).then((dogs) => console.log("Dogs by IDs:", dogs));
+
+    // Match dogs
+    const dogsToMatch = ["abc123", "def456"];
+    matchDogs(dogsToMatch).then((matchResult) => setMatchedDog(matchResult));
+
+    // Fetch locations
+    const zipCodes = ["54321", "67890"];
+    fetchLocations(zipCodes).then((locations) => setLocations(locations));
+
+    // Search locations
+    const searchLocationParams = {
+      city: "New York",
+      states: ["NY"],
+      size: 5,
+    };
+    searchLocations(searchLocationParams).then((searchResult) =>
+      setSearchLocationResult(searchResult)
+    );
   }, []);
 
-  const handleSearch = async () => {
-    // Prepare query parameters based on selected breed
-    const queryParams = selectedBreed ? `?breeds=${selectedBreed}` : '';
-
-    const searchData = await searchDogs(queryParams);
-    if (searchData) {
-      setSearchResults(searchData.resultIds);
-    }
-  };
-
   return (
-    <div style={{ maxWidth: '800px', margin: 'auto', padding: '20px' }}>
-      <h2>Welcome to the Dog Adoption Search!</h2>
-      <label>
-        Select Breed:
-        <select value={selectedBreed} onChange={(e) => setSelectedBreed(e.target.value)}>
-          <option value="">All Breeds</option>
-          {breeds.map((breed) => (
-            <option key={breed} value={breed}>
-              {breed}
-            </option>
-          ))}
-        </select>
-      </label>
-      <button onClick={handleSearch} style={{ marginLeft: '10px', padding: '8px' }}>
-        Search
-      </button>
-      <div style={{ marginTop: '20px' }}>
-        {searchResults.map((dogId) => (
-          <DogCard key={dogId} dogId={dogId} />
-        ))}
+    <div>
+      <h1>Dog Adoption App</h1>
+
+      <div>
+        <h2>Dog Breeds</h2>
+        <pre>{JSON.stringify(breeds, null, 2)}</pre>
+      </div>
+
+      <div>
+        <h2>Search Dogs Result</h2>
+        <pre>{JSON.stringify(searchResult, null, 2)}</pre>
+      </div>
+
+      <div>
+        <h2>Dog Details</h2>
+        <pre>{JSON.stringify(dogDetails, null, 2)}</pre>
+      </div>
+
+      <div>
+        <h2>Matched Dog</h2>
+        <pre>{JSON.stringify(matchedDog, null, 2)}</pre>
+      </div>
+
+      <div>
+        <h2>Locations</h2>
+        <pre>{JSON.stringify(locations, null, 2)}</pre>
+      </div>
+
+      <div>
+        <h2>Search Locations Result</h2>
+        <pre>{JSON.stringify(searchLocationResult, null, 2)}</pre>
       </div>
     </div>
   );
