@@ -1,5 +1,7 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
-import { isAuthenticated, fetchLocations, getDogBreeds, searchDogs } from '../api/api';
+import { fetchLocations, getDogBreeds, searchDogs } from '../api/api';
+
+// removing isAuthenticated for now from import, will see if it breaks after setting up the search 
 
 // Import FilterComponent dynamically using lazy
 const FilterComponent = lazy(() => import('./FilterComponent'));
@@ -7,10 +9,7 @@ const FilterComponent = lazy(() => import('./FilterComponent'));
 const HomePage = ({ isLoggedIn }) => {
   const [breeds, setBreeds] = useState([]);
   const [searchResult, setSearchResult] = useState({});
-  const [dogDetails, setDogDetails] = useState({});
-  const [matchedDog, setMatchedDog] = useState({});
   const [locations, setLocations] = useState([]);
-  const [searchLocationResult, setSearchLocationResult] = useState({});
   const [filterParams, setFilterParams] = useState({
     breeds: [],
     zipCodes: [],
@@ -58,6 +57,12 @@ const HomePage = ({ isLoggedIn }) => {
     setFilterParams(newFilterParams);
   };
 
+  const handlePagination = (page) => {
+    // Update the 'from' parameter to fetch the next or previous page
+    const newFilterParams = { ...filterParams, from: page * filterParams.size };
+    setFilterParams(newFilterParams);
+  };
+
   return (
     <div>
       <h1>Rescueeeeee Meh</h1>
@@ -73,19 +78,44 @@ const HomePage = ({ isLoggedIn }) => {
 
       <div>
         <h2>Dog Breeds</h2>
-        <pre>{JSON.stringify(breeds, null, 2)}</pre>
+        {/* Display breeds in a more user-friendly format */}
+        <ul>
+          {breeds.map((breed) => (
+            <li key={breed.id}>{breed.name}</li>
+          ))}
+        </ul>
       </div>
 
       {isLoggedIn && (
         <div>
           <h2>Search Dogs Result</h2>
-          <pre>{JSON.stringify(searchResult, null, 2)}</pre>
+          {/* Display search results in card format */}
+          <div>
+            {searchResult.resultIds.map((dogId) => (
+              <div key={dogId} style={{ border: '1px solid #ddd', padding: '10px', margin: '10px', borderRadius: '5px' }}>
+                {/* props from api */}
+                <p>Dog ID: {dogId}</p>
+                {/* props from api */}
+              </div>
+            ))}
+          </div>
+          
+          {/* Pagination controls */}
+          <div>
+            <button onClick={() => handlePagination(searchResult.prev)}>Previous</button>
+            <button onClick={() => handlePagination(searchResult.next)}>Next</button>
+          </div>
         </div>
       )}
 
       <div>
         <h2>Locations</h2>
-        <pre>{JSON.stringify(locations, null, 2)}</pre>
+        {/* Display locations */}
+        <ul>
+          {locations.map((location) => (
+            <li key={location.id}>{location.name}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );

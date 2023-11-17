@@ -13,34 +13,33 @@ const Login = ({ onLogin }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (!validateEmail(email)) {
       return;
     }
-
-    // TODO: Implement the API call to /auth/login
+  
     try {
-      // Mock API call
       const response = await fetch('https://frontend-take-home-service.fetch.com/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ name, email }),
+        credentials: 'include', // Pass credentials (cookies) with the request
       });
-
+  
       if (response.ok) {
         // Extract the token from the response headers
         const authToken = response.headers.get('fetch-access-token');
         
         // Store the token securely (for simplicity, using localStorage here)
         localStorage.setItem('authToken', authToken);
-
+      
         // Trigger the onLogin callback
         onLogin();
       } else {
         console.error('Login failed:', response.status, response.statusText);
-        // TODO: Handle login failure (show error message, etc.)
+        // TODO: Handle login failure
       }
     } catch (error) {
       console.error('Error during login:', error);

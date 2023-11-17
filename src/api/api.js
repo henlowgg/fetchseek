@@ -12,7 +12,16 @@ const apiBaseUrl = 'https://frontend-take-home-service.fetch.com';
 
 const apiFetch = async (url, options) => {
   try {
-    const response = await fetch(url, options);
+    const authToken = localStorage.getItem('authToken');
+
+    const response = await fetch(url, {
+      ...options,
+      headers: {
+        ...options.headers,
+        'Authorization': `Bearer ${authToken}`,
+      },
+    });
+
 
     if (!response.ok) {
       throw new Error(`${response.status} ${response.statusText}`);
@@ -39,7 +48,7 @@ export const login = async (name, email) => {
       // Extract the token from the response headers
       const authToken = response.headers.get('fetch-access-token');
       
-      // Store the token securely (for simplicity, using localStorage here)
+      // Store the token securely (for simplicity, using localStorage)
       localStorage.setItem('authToken', authToken);
     } else {
       handleApiError(response);
@@ -50,22 +59,22 @@ export const login = async (name, email) => {
 };
 
 // POST/auth/logout
-export const logout = async () => {
-  try {
-    await apiFetch(`${apiBaseUrl}/auth/logout`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${getAuthToken()}`,
-      },
-    });
+// export const logout = async () => {
+//   try {
+//     await apiFetch(`${apiBaseUrl}/auth/logout`, {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//         'Authorization': `Bearer ${getAuthToken()}`,
+//       },
+//     });
 
-    // Clear the stored token on successful logout
-    localStorage.removeItem('authToken');
-  } catch (error) {
-    handleApiError(error);
-  }
-};
+//     // Clear the stored token on successful logout
+//     localStorage.removeItem('authToken');
+//   } catch (error) {
+//     handleApiError(error);
+//   }
+// };
 
 // GET/dogs/breeds
 export const getDogBreeds = async () => {
