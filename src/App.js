@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import Login from './Login';
+import Login from './components/Login';
+import './styles.css';
+
+
 
 
 const App = () => {
