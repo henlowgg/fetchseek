@@ -1,87 +1,91 @@
-import React, { useState, useEffect } from "react";
-import { fetchDogsByIds, fetchLocations, getDogBreeds, matchDogs, searchDogs, searchLocations } from './api';
+import React, { useState, useEffect, lazy, Suspense } from "react";
+import { isAuthenticated, fetchLocations, getDogBreeds, searchDogs } from '../api/api';
 
-const HomePage = () => {
+// Import FilterComponent dynamically using lazy
+const FilterComponent = lazy(() => import('./FilterComponent'));
+
+const HomePage = ({ isLoggedIn }) => {
   const [breeds, setBreeds] = useState([]);
   const [searchResult, setSearchResult] = useState({});
   const [dogDetails, setDogDetails] = useState({});
   const [matchedDog, setMatchedDog] = useState({});
   const [locations, setLocations] = useState([]);
   const [searchLocationResult, setSearchLocationResult] = useState({});
+  const [filterParams, setFilterParams] = useState({
+    breeds: [],
+    zipCodes: [],
+    ageMin: null,
+    ageMax: null,
+    size: 25,
+    sort: "breed:asc",
+  });
 
   useEffect(() => {
-    // Fetch dog breeds
-    getDogBreeds().then((breeds) => setBreeds(breeds));
+    const fetchData = async () => {
+      // Fetch dog breeds if the user is authenticated
+      if (isLoggedIn) {
+        try {
+          const breeds = await getDogBreeds();
+          setBreeds(breeds);
 
-    // Search dogs
-    const searchParams = {
-      breeds: ["Labrador Retriever"],
-      zipCodes: ["12345"],
-      ageMin: 2,
-      ageMax: 5,
-      size: 10,
+          // Fetch dogs based on filter parameters
+          const result = await searchDogs(filterParams);
+          setSearchResult(result);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+          // Handle error (e.g., show a message to the user)
+        }
+      }
+
+      // Fetch locations if the user is authenticated
+      if (isLoggedIn) {
+        try {
+          const zipCodes = ["54321", "67890"];
+          const locations = await fetchLocations(zipCodes);
+          setLocations(locations);
+        } catch (error) {
+          console.error('Error fetching locations:', error);
+          // Handle error (e.g., show a message to the user)
+        }
+      }
     };
-    searchDogs(searchParams).then((result) => setSearchResult(result));
 
-    // Fetch dog details by ID
-    const dogId = "abc123";
-    fetchDogsByIds([dogId]).then((dogDetails) => setDogDetails(dogDetails[0]));
+    // Call fetchData function
+    fetchData();
+  }, [filterParams, isLoggedIn]);
 
-    // Fetch dogs by IDs
-    const dogIds = ["abc123", "def456"];
-    fetchDogsByIds(dogIds).then((dogs) => console.log("Dogs by IDs:", dogs));
-
-    // Match dogs
-    const dogsToMatch = ["abc123", "def456"];
-    matchDogs(dogsToMatch).then((matchResult) => setMatchedDog(matchResult));
-
-    // Fetch locations
-    const zipCodes = ["54321", "67890"];
-    fetchLocations(zipCodes).then((locations) => setLocations(locations));
-
-    // Search locations
-    const searchLocationParams = {
-      city: "New York",
-      states: ["NY"],
-      size: 5,
-    };
-    searchLocations(searchLocationParams).then((searchResult) =>
-      setSearchLocationResult(searchResult)
-    );
-  }, []);
+  const handleFilterChange = (newFilterParams) => {
+    setFilterParams(newFilterParams);
+  };
 
   return (
     <div>
-      <h1>Dog Adoption App</h1>
+      <h1>Rescueeeeee Meh</h1>
+
+      {isLoggedIn && (
+        <div>
+          {/* Use Suspense to dynamically load the FilterComponent */}
+          <Suspense fallback={<div>Loading...</div>}>
+            <FilterComponent onFilterChange={handleFilterChange} />
+          </Suspense>
+        </div>
+      )}
 
       <div>
         <h2>Dog Breeds</h2>
         <pre>{JSON.stringify(breeds, null, 2)}</pre>
       </div>
 
-      <div>
-        <h2>Search Dogs Result</h2>
-        <pre>{JSON.stringify(searchResult, null, 2)}</pre>
-      </div>
-
-      <div>
-        <h2>Dog Details</h2>
-        <pre>{JSON.stringify(dogDetails, null, 2)}</pre>
-      </div>
-
-      <div>
-        <h2>Matched Dog</h2>
-        <pre>{JSON.stringify(matchedDog, null, 2)}</pre>
-      </div>
+      {isLoggedIn && (
+        <div>
+          <h2>Search Dogs Result</h2>
+          <pre>{JSON.stringify(searchResult, null, 2)}</pre>
+        </div>
+      )}
 
       <div>
         <h2>Locations</h2>
         <pre>{JSON.stringify(locations, null, 2)}</pre>
-      </div>
-
-      <div>
-        <h2>Search Locations Result</h2>
-        <pre>{JSON.stringify(searchLocationResult, null, 2)}</pre>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Login from './components/Login';
+import HomePage from './components/HomePage';
 import './styles.css';
 
 
@@ -19,6 +20,8 @@ const App = () => {
       ) : (
         <Login onLogin={handleLogin} />
       )}
+
+      <HomePage />
     </div>
   );
 };
