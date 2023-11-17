@@ -6,6 +6,7 @@ const App = () => {
     <div>
       <h1>RescueMe</h1>
       <LoginForm />
+      
       {/* placeholder for more components */}
     </div>
   );
