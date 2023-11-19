@@ -9,7 +9,7 @@ src: ();
 
 :root{
   --main-bg-color: #222222;
-  --main-div-color: 131313;
+  --main-div-color: #131313;
   --width: 95%;
   --max-width: 1600px;
   --border-radius: 20px;
@@ -36,7 +36,8 @@ html, body{
 }
 
 h1{
-  font-size: 7vw;
+  font-size: clamp(2rem, 7vw, 6rem);
+  /* can change from 40px to 6rem or lower, leave for now , can also change from 4-7 vw*/
 }
 
 main{
@@ -54,6 +55,78 @@ main{
   margin-bottom: 5rem;
 }
 
+.container{
+  position: relative;
+  width: var(--width);
+  max-width: var(--max-width);
+  background-color: var(--main-div-color);
+  padding: 2rem;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+}
+
+.nav__container{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 1rem 0 2rem 0;
+}
+
+nav{
+  width: 450px;
+  position: relative;
+}
+
+nav ul{
+  display: flex;
+  justify-content: space-between;
+}
+
+nav ul li a{
+  opacity: .8;
+}
+
+.hero__text{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  margin-bottom: 2rem;
+}
+
+.sub__header{
+  grid-column: span 12;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.circle{
+  width: .5rem;
+  height: .5rem;
+  background-color: #d6a3e4;
+  margin-right: .5rem;
+  border-radius: 50%;
+  margin-bottom: .125rem;
+}
+
+.sub__header h4{
+  font-weight: bold;
+}
+
+.hero__header{
+  grid-column: span 12;
+  margin-bottom: 1rem;
+}
+
+.hero__intro{
+  grid-column: span 5;
+  margin-bottom: 1rem;
+  font-family: 'Syne', sans-serif;
+  opacity: .8;
+}
+
+/* doggo animation styling */
 .ball {
   width: 32px;
   height: 32px;
