@@ -138,6 +138,15 @@ nav ul li a{
 .image__container{
   position: relative;
   width: 100%;
+  /* background-color: yellow; */
+  padding-top: 40%;
+  height: 0;
+}
+
+.main__hero__image{
+  position: relative;
+  top: 0;
+  left: 0;
 }
 
 .bottom__div{
@@ -820,7 +829,7 @@ doggo__animation {
   padding: 0;
 } */
 
-*, *:before, *:after {
+* {
   box-sizing: border-box;
   position: relative;
 }
