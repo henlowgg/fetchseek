@@ -133,6 +133,13 @@ nav ul li a{
   opacity: .8;
 }
 
+/* main image container */
+
+.image__container{
+  position: relative;
+  width: 100%;
+}
+
 .bottom__div{
   position: relative;
   width: var(--width);
@@ -217,6 +224,26 @@ nav ul li a{
   width: 60%;
 }
 
+.left__carousel{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 5%;
+  height: 100%;
+  background: linear-gradient(270deg, transparent, var(--main-div-color)); /* basically giving a fade out effect for the carousel */
+  z-index: 1;
+}
+
+.right__carousel{
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 5%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--main-div-color)); /* basically giving a fade out effect for the carousel */
+  z-index: 1;
+}
+
 /* carousel animation */
 
 @keyframes marquee{
@@ -226,6 +253,27 @@ nav ul li a{
   100%{
     transform: translateX(-50%);
   }
+}
+
+#about{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.about__container{
+  position: relative;
+  top: -5rem;
+  width: var(--width);
+  max-width: var(--max-width);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.about__text{
+  grid-column: span 5;
+  padding-left: 2rem;
 }
 
 /* doggo animation styling */
