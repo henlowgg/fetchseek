@@ -1,121 +1,57 @@
+import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import Login from "./app/pages/Login";
+import Home from "./app/pages/Home";
+import { User } from "./app/utils/types";
+import api from "./app/utils/api";
+import "./index.css";
 
+function App() {
+  const USER_KEY = "user";
+  const [user, setUser] = useState();
 
+  useEffect(() => {
+    const userJson = localStorage.getItem(USER_KEY);
+    if (userJson) {
+      setUser(JSON.parse(userJson));
+    }
+  }, []);
 
+  useEffect(() => {
+    if (user !== undefined) {
+      localStorage.setItem(USER_KEY, JSON.stringify(user));
+    } else {
+      localStorage.removeItem(USER_KEY);
+    }
+  }, [user]);
 
+  const resetUser = () => {
+    setUser(undefined);
+  };
 
+  const handleLogout = async () => {
+    try {
+      const res = await api.LogoutReq();
+      if (res === "OK") {
+        setUser(undefined);
+        toast.success("Bork Bork");
+      }
+    } catch (msg) {
+      console.log(msg);
+      toast.error("Booo there was an error logging out");
+    }
+  };
 
+  return (
+    <>
+      {user === undefined ? (
+        <Login setUser={setUser} />
+      ) : (
+        <Home handleLogout={handleLogout} resetUser={resetUser} />
+      )}
+      <ToastContainer />
+    </>
+  );
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React, { useState, useEffect } from "react";
-// import {
-//   BrowserRouter as Router,
-//   Routes,
-//   Route,
-//   Navigate,
-// } from "react-router-dom";
-// import Login from "./components/Login";
-// import HomePage from "./components/HomePage";
-// import Navbar from "./components/Navbar";
-// import DogLoading from "./components/DogLoading/DogLoading"; // Import DogLoading component
-// import styles from "./App.scss";
-// import "./components/tailwind-login.css";
-
-// const App = () => {
-//   const [isLoggedIn, setIsLoggedIn] = useState(
-//     localStorage.getItem("isLoggedIn") === "true"
-//   );
-//   const [shouldRedirect, setShouldRedirect] = useState(false);
-//   const [isLoading, setIsLoading] = useState(false);
-
-//   const handleLogin = () => {
-//     setIsLoggedIn(true);
-//     localStorage.setItem("isLoggedIn", "true");
-//     setShouldRedirect(true);
-//     setIsLoading(true);
-//   };
-
-//   const handleLogout = () => {
-//     setIsLoggedIn(false);
-//     localStorage.setItem("isLoggedIn", "false");
-//   };
-
-//   useEffect(() => {
-//     if (shouldRedirect) {
-//       setShouldRedirect(false);
-//     }
-//   }, [shouldRedirect]);
-
-//   useEffect(() => {
-//     if (isLoading) {
-//       const timeout = setTimeout(() => {
-//         setIsLoading(false);
-//       }, 5000);
-
-//       return () => clearTimeout(timeout);
-//     }
-//   }, [isLoading]);
-
-//   return (
-//     <div className={`${styles.App} w-screen`}>
-//       <Router>
-//         {isLoading ? (
-//           <div className="flex justify-center items-center h-screen">
-//             <DogLoading />
-//           </div>
-//         ) : (
-//           <>
-//             {isLoggedIn && <Navbar onLogout={handleLogout} />}
-//             <div style={{ marginTop: "64px" }}></div>
-//             <Routes>
-//               <Route
-//                 path="/"
-//                 element={<Navigate to={isLoggedIn ? "/home" : "/login"} />}
-//               />
-//               <Route
-//                 path="/home"
-//                 element={isLoggedIn ? <HomePage /> : <Navigate to="/login" />}
-//               />
-//               <Route
-//                 path="/login"
-//                 element={
-//                   isLoggedIn ? (
-//                     <Navigate to="/home" />
-//                   ) : (
-//                     <Login onLogin={handleLogin} />
-//                   )
-//                 }
-//               />
-//             </Routes>
-//           </>
-//         )}
-//       </Router>
-//     </div>
-//   );
-// };
-
-// export default App;
+export default App;

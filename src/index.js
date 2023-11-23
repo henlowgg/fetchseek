@@ -1,16 +1,16 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import "./styles.scss";
-// import App from "./App.js";
-import Login from "../src/components/Login"
+import "./index.css"
+// Import the App component
+import App from "./App";
 
-const rootElement = document.getElementById("root");
+import { ThemeProvider } from "@material-tailwind/react";
 
-const root = createRoot(rootElement);
-
+// Use ReactDOM to render the App component to the root element
+const root = createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    {/* <App /> */}
-    <Login />
-  </React.StrictMode>
-);
+<React.StrictMode>
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
+  </React.StrictMode>);
