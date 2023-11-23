@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Card from "../components/Card";
+import DogCard from "../components/Card";
 import { Dog } from "../utils/types";
 import api from "../utils/api";
 import { ToastContainer, toast } from "react-toastify";
@@ -13,8 +13,7 @@ import laysLogo from "../../assets/images/Lays.webp";
 import targetLogo from "../../assets/images/target.webp";
 import next from "../../assets/images/chevron_left_FILL0_wght400_GRAD0_opsz24.svg";
 import prev from "../../assets/images/chevron_right_FILL0_wght400_GRAD0_opsz24.svg";
-import doggo from "../../assets/favicon.png"
-
+import doggo from "../../assets/favicon.png";
 
 const Home = ({ handleLogout, resetUser }) => {
   const PAGE_SIZE = 6;
@@ -77,20 +76,19 @@ const Home = ({ handleLogout, resetUser }) => {
   return (
     <>
       <main>
-      
         <section id="hero">
           <div className="container">
-            
             <div className="nav__container">
               <nav>
-                
                 <ul>
-                  
-                  
                   <li>
-                    <a href="https://github.com/henlowgg"
+                    <a
+                      href="https://github.com/henlowgg"
                       target="_blank"
-                      rel="noopener noreferrer">githoob</a>
+                      rel="noopener noreferrer"
+                    >
+                      githoob
+                    </a>
                   </li>
 
                   <li>
@@ -115,12 +113,11 @@ const Home = ({ handleLogout, resetUser }) => {
                 <div className="circle"></div>
                 <h4>rescue.io</h4>
               </div>
-              <h1 className="hero__header">
-              one doggo at a time..
-              </h1>
+              <h1 className="hero__header">one doggo at a time..</h1>
               <p className="hero__intro">
-                Our GPT-5.5 powered doggo.io software helps connect good doggos with loving families. For each goodest boi or bestest girl brought home from a shelter, our Partners
-                at{" "}
+                Our GPT-5.8008 mid diff doggo.io software helps connect good
+                doggos with loving families. For each goodest boi or bestest
+                girl brought home from a shelter, our Partners at{" "}
                 <a
                   href="https://fetch.com/"
                   target="_blank"
@@ -128,74 +125,77 @@ const Home = ({ handleLogout, resetUser }) => {
                 >
                   fetch.com
                 </a>{" "}
-                are pledging to give over $150 in rewards from our sponsors of over 500 Brands!
+                are pledging to give over $150 in rewards from our sponsors of
+                over 500 Brands!
               </p>
             </div>
-            <div className="image__container">
             <div>
-        <div>
-          <h1>find doggos</h1>
-        </div>
-
-        <div>
-          <div>
-            <div>
-              <CustomSelect setSelectedBreeds={setSelectedBreeds} />
-              <button onClick={toggleSort}>
-                {sort === "asc" ? (
-                  <next size={24} color="#300d38" />
-                ) : (
-                  <prev size={24} color="#300d38" />
-                )}
-              </button>
-            </div>
-          </div>
-          <div />
-          <div className="results__container">
-            {dogs.map((dog) => (
-              <Card
-                key={dog.id}
-                dog={dog}
-                selected={selectedDogs}
-                setSelectedDogs={setSelectedDogs}
-              />
-            ))}
-          </div>
-          <div>
-            <button
-              onClick={() => setPage((page) => page - 1)}
-              disabled={page === 0}
-            >
-              <image src={prev} alt="previous page" />
-            </button>
-            <p>
-              {(page + 1).toString()} / {totalPages.toString()}
-            </p>
-            <button
-              onClick={() => setPage((page) => page + 1)}
-              disabled={page + 1 === totalPages}
-            >
-              <image src={next} alt="next page" />
-            </button>
-          </div>
-          {selectedDogs.length > 0 && (
-            <div>
-              <button title="Match" onClick={resetMatch}>
-                {/* <IconTrash size={24} /> */}
-              </button>
-              <button title="Match" onClick={getMatch}>
-                {/* <image classNameName="w-8" src={dogIcon} alt="Dog icon" /> */}
-                <p>{selectedDogs.length}</p>
-              </button>
-            </div>
-          )}
-        </div>
-      </div>
-      {match && (
-        <div>
-          <MatchCard match={match} resetMatch={resetMatch} />
-        </div>
-      )}
+              <div>
+                <div>
+                  <h1>find doggos</h1>
+                </div>
+                <CustomSelect setSelectedBreeds={setSelectedBreeds} />
+                      {/* <button onClick={toggleSort}>
+                        {sort === "asc" ? (
+                          <next size={24} color="#300d38" />
+                        ) : (
+                          <prev size={24} color="#300d38" />
+                        )}
+                      </button> */}
+                <div>
+                  <div>
+                    <div>
+                      
+                    </div>
+                  </div>
+                <div />
+              <section>
+                  <dogCard>
+                    {dogs.map((dog) => (
+                      <DogCard
+                        key={dog.id}
+                        dog={dog}
+                        selected={selectedDogs}
+                        setSelectedDogs={setSelectedDogs}
+                      />
+                    ))}
+                  </dogCard>
+              </section>
+                  <div>
+                    <button
+                      onClick={() => setPage((page) => page - 1)}
+                      disabled={page === 0}
+                    >
+                      <image src={prev} alt="previous page" />
+                    </button>
+                    <p>
+                      {(page + 1).toString()} / {totalPages.toString()}
+                    </p>
+                    <button
+                      onClick={() => setPage((page) => page + 1)}
+                      disabled={page + 1 === totalPages}
+                    >
+                      <image src={next} alt="next page" />
+                    </button>
+                  </div>
+                  {selectedDogs.length > 0 && (
+                    <div>
+                      <button title="Match" onClick={resetMatch}>
+                        {/* <IconTrash size={24} /> */}
+                      </button>
+                      <button title="Match" onClick={getMatch}>
+                        {/* <image classNameName="w-8" src={dogIcon} alt="Dog icon" /> */}
+                        <p>{selectedDogs.length}</p>
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </div>
+              {match && (
+                <div>
+                  <MatchCard match={match} resetMatch={resetMatch} />
+                </div>
+              )}
             </div>
             <div className="carousel">
               <div className="left__carousel"></div>
@@ -255,15 +255,11 @@ const Home = ({ handleLogout, resetUser }) => {
         <section id="about">
           <div className="about__container relative top-neg-5rem w-width max-w-max-width grid grid-cols-12">
             <div className="about__text grid-col-span-5 pl-2">
-              <h2>
-                go adopt a doggo right now, seriously, or else...
-              </h2>
+              <h2>go adopt a doggo right now, seriously, or else...</h2>
             </div>
           </div>
         </section>
       </main>
-
-      
     </>
   );
 };

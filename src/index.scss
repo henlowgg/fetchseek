@@ -116,23 +116,23 @@ nav ul li a{
   opacity: .8;
 }
 
-.results__container{
-  position: relative;
-  height: 100%;
-  max-width: var(--max-width);
-  display: grid;
-  object-fit: cover;
-  grid-template-columns: span 6;
-  gap: 1.25vmax;
-  justify-items: center;
-};
+// .results__container{
+//   position: relative;
+//   height: 100%;
+//   max-width: var(--max-width);
+//   display: grid;
+//   object-fit: cover;
+//   grid-template-columns: span 6;
+//   gap: 1.25vmax;
+//   justify-items: center;
+// };
 
 .result_card {
   background-color: black;
 }
-dog.img{
-  object-fit: cover;
-}
+// dog.img{
+//   object-fit: cover;
+// }
 
 
 .hero__text{
@@ -255,10 +255,86 @@ dog.img{
 /* Cards */
 
 
-.card-grid {
-	display: grid;
-	grid-template-columns: auto 1fr;
-	gap: 4px;
+section img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: .75rem;
+  max-width: 100%;
+  max-height: 15rem; /* Adjust the height as needed */
+  object-fit: cover;
+  width: auto;
+}
+
+section .flex {
+  display: flex;
+  justify-content: center;
+}
+
+section .max-w-75rem {
+  max-width: 75rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+section .posts {
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1;
+  gap: 1rem;
+  justify-content: center;
+}
+
+section .blog-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 1rem;
+  background-color: #ffffff; /* Replace with the desired background color */
+  padding: 1.25rem; /* Adjust the padding as needed */
+}
+
+section .blog-card img {
+  margin-bottom: 0.75rem; /* Adjust the margin as needed */
+  aspect-ratio: 1 / 1;
+  max-height: 15rem; /* Adjust the max-height as needed */
+  object-fit: cover;
+}
+
+/* Blog card text styles */
+
+section .blog-card .flex {
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+section .blog-card p {
+  margin-bottom: 0;
+  font-size: 1rem; /* Adjust the font size as needed */
+  font-weight: bold;
+  line-height: 1.5;
+  color: #352646; /* Replace with the desired text color */
+}
+
+/* Button styles */
+
+section .btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem; /* Adjust the font size as needed */
+  font-weight: bold;
+  color: #ffffff; /* Replace with the desired text color */
+  background-color: #ff8c00; /* Replace with the desired background color */
+  border-radius: 0.5rem; /* Adjust the border radius as needed */
+}
+
+section .btn:hover {
+  background-color: #ff6f00; /* Replace with the desired hover background color */
 }
 
 

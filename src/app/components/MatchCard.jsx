@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { Dog } from "../utils/types.jsx";
-import Button from "./Button";
+// import Button from "./Button";
 
 import {
   Card,
@@ -12,11 +12,12 @@ import {
 } from "@material-tailwind/react";
 
 const MatchCard = ({ match, resetMatch }) => {
-  // clicky boi
+  // Function to handle button click
   const handleClick = () => {
     resetMatch();
   };
 
+  // Memoized function to generate a random dog paragraph
   const generateDogParagraph = useMemo(() => {
     const sentences = [
       "Hello, my name is [name], and I am a coding wizard disguised as a fluffy canine. At [age] years old, I've debugged countless belly rub issues and can fetch data faster than you can say 'sit.'",
@@ -32,12 +33,14 @@ const MatchCard = ({ match, resetMatch }) => {
       const randomIndex = Math.floor(Math.random() * sentences.length);
       let paragraph = sentences[randomIndex];
 
+      // Replace placeholders with actual name and age
       paragraph = paragraph.replace(/\[name\]/g, name);
       paragraph = paragraph.replace(/\[age\]/g, age.toString());
 
       return paragraph;
     };
-  }, []); 
+  }, []); // Empty dependency array since this function doesn't depend on any external variables
+
   return (
     <Card className="w-96">
       <CardHeader shadow={false} floated={false} className="h-96">
