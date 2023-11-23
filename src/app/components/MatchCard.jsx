@@ -1,13 +1,7 @@
 import React, { useMemo } from "react";
 import { Dog } from "../utils/types.jsx";
 
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  Typography,
-  Button,
-} from "@material-tailwind/react";
+
 
 const MatchCard = ({ match, resetMatch }) => {
   const handleClick = () => {
@@ -37,20 +31,20 @@ const MatchCard = ({ match, resetMatch }) => {
   }, []);
 
   return (
-    <Card>
-      <CardHeader>
+    <div>
+      <div>
         <img
           src={match.img}
           alt="Dog image"
         />
-      </CardHeader>
-      <CardBody>
+      </div>
+      <div>
         <div>
-          <Typography>{match.name}</Typography>
+          <div>{match.name}</div>
           <p>{generateDogParagraph(match.name, match.age)}</p>
         </div>
-      </CardBody>
-    </Card>
+      </div>
+    </div>
   );
 };
 

@@ -17,7 +17,7 @@ const DogCard = ({ dog, selected, setSelectedDogs }) => {
 
   return (
     
-      <div className="flex justify-center">
+      <div className="flex">
         <div className="max-w-[75rem] px-2 md:px-4 lg:px-6">
           <div className="posts mb-8 grid grid-cols-2 grid-rows-1 gap-6 sm:flex">
             
@@ -32,7 +32,7 @@ const DogCard = ({ dog, selected, setSelectedDogs }) => {
   
       
         <div className="flex h-full flex-col justify-between">
-          <p className="mb-0 font-lexend text-base font-bold leading-6 text-fetch-dark-purple text-primary line-clamp-4 sm:mb-3 sm:text-xl">
+          <p className="mb-2 font-lexend text-base font-bold leading-6 text-fetch-dark-purple text-primary line-clamp-4 sm:mb-3 sm:text-xl">
             {dog.name}, {dog.age} <br></br> {dog.breed}, {dog.zip_code}
           </p>
   

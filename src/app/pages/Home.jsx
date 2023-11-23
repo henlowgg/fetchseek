@@ -78,6 +78,7 @@ const Home = ({ handleLogout, resetUser }) => {
     <>
       <main>
         <section id="hero">
+          
           <div className="container">
             <div className="nav__container">
               <nav>
@@ -88,10 +89,10 @@ const Home = ({ handleLogout, resetUser }) => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      githoob
+                      github
                     </a>
                   </li>
-
+                  
                   <li>
                     <a
                       href="https://fetch.com/"
@@ -116,7 +117,7 @@ const Home = ({ handleLogout, resetUser }) => {
               </div>
               <h1 className="hero__header">one doggo at a time..</h1>
               <p className="hero__intro">
-                Our GPT-5.8008 mid diff doggo.io software helps connect good
+                Our GPT-5.5 mid diff doggo.io software helps connect good
                 doggos with loving families. For each goodest boi or bestest
                 girl brought home from a shelter, our Partners at{" "}
                 <a
