@@ -11,12 +11,13 @@ import bluemoonLogo from "../../assets/images/BlueMoon.webp";
 import starbucksLogo from "../../assets/images/starbucks.webp";
 import laysLogo from "../../assets/images/Lays.webp";
 import targetLogo from "../../assets/images/target.webp";
-import next from "../../assets/images/chevron_left_FILL0_wght400_GRAD0_opsz24.svg";
-import prev from "../../assets/images/chevron_right_FILL0_wght400_GRAD0_opsz24.svg";
+import Next from "../../assets/images/right.svg";
+import Prev from "../../assets/images/left.svg";
+import Restart from "../../assets/images/restart.svg"
 import doggo from "../../assets/favicon.png";
 
 const Home = ({ handleLogout, resetUser }) => {
-  const PAGE_SIZE = 6;
+  const PAGE_SIZE = 12;
 
   const [page, setPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
@@ -132,16 +133,16 @@ const Home = ({ handleLogout, resetUser }) => {
             <div>
               <div>
                 <div>
-                  <h1>find doggos</h1>
+                  <h3>find doggos</h3>
                 </div>
                 <CustomSelect setSelectedBreeds={setSelectedBreeds} />
-                      {/* <button onClick={toggleSort}>
+                      <button onClick={toggleSort}> Breed A-Z
                         {sort === "asc" ? (
                           <next size={24} color="#300d38" />
                         ) : (
                           <prev size={24} color="#300d38" />
                         )}
-                      </button> */}
+                      </button>
                 <div>
                   <div>
                     <div>
@@ -166,7 +167,7 @@ const Home = ({ handleLogout, resetUser }) => {
                       onClick={() => setPage((page) => page - 1)}
                       disabled={page === 0}
                     >
-                      <image src={prev} alt="previous page" />
+                      <img src={Prev} alt="previous page" />
                     </button>
                     <p>
                       {(page + 1).toString()} / {totalPages.toString()}
@@ -175,16 +176,17 @@ const Home = ({ handleLogout, resetUser }) => {
                       onClick={() => setPage((page) => page + 1)}
                       disabled={page + 1 === totalPages}
                     >
-                      <image src={next} alt="next page" />
+                      <img src={Next} alt="next page" />
                     </button>
                   </div>
                   {selectedDogs.length > 0 && (
                     <div>
                       <button title="Match" onClick={resetMatch}>
-                        {/* <IconTrash size={24} /> */}
+                        <img src={Restart} size={24} alt="Reset Results" />
                       </button>
                       <button title="Match" onClick={getMatch}>
-                        {/* <image classNameName="w-8" src={dogIcon} alt="Dog icon" /> */}
+                        {/* doggo get bbutton, aka show me my doggos */}
+                        <img classNameName="w-1" src={doggo} alt="Dog icon" />
                         <p>{selectedDogs.length}</p>
                       </button>
                     </div>

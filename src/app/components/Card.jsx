@@ -2,14 +2,7 @@ import React from "react";
 
 import { Dog } from "../utils/types";
 
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Typography,
-  Button,
-} from "@material-tailwind/react";
+
 
 const DogCard = ({ dog, selected, setSelectedDogs }) => {
   const handleSelect = (id) => {
