@@ -4,7 +4,7 @@ import Login from "./app/pages/Login";
 import Home from "./app/pages/Home";
 import { User } from "./app/utils/types";
 import api from "./app/utils/api";
-import "./index.css";
+import "./index.scss";
 
 function App() {
   const USER_KEY = "user";

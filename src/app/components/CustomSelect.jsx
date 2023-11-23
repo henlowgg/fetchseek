@@ -3,17 +3,15 @@ import Select from "react-select";
 import api from "../utils/api";
 
 const CustomSelect = ({ setSelectedBreeds }) => {
-  // Select options for react-select
   const [selectOptions, setSelectOptions] = useState([]);
 
-  // Styles for react-select
   const customStyles = {
     control: (base) => ({
       ...base,
       padding: [8, 6],
       fontSize: 16,
       outline: "none",
-      background: "#F2D4AC",
+      background: "#FEA901",
       height: "100%",
       minWidth: "250px",
       borderWidth: "2px",

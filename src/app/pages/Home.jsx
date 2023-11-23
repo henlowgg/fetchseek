@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import DogCard from "../components/Card";
-import { Dog, Dogs, DogsSearchFilter } from "../utils/types";
+import Card from "../components/Card";
+import { Dog } from "../utils/types";
 import api from "../utils/api";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import CustomSelect from "../components/CustomSelect";
 import MatchCard from "../components/MatchCard";
 import airbnbLogo from "../../assets/images/airbnb.webp";
@@ -11,10 +11,13 @@ import bluemoonLogo from "../../assets/images/BlueMoon.webp";
 import starbucksLogo from "../../assets/images/starbucks.webp";
 import laysLogo from "../../assets/images/Lays.webp";
 import targetLogo from "../../assets/images/target.webp";
-import { Button } from "@material-tailwind/react";
+import next from "../../assets/images/chevron_left_FILL0_wght400_GRAD0_opsz24.svg";
+import prev from "../../assets/images/chevron_right_FILL0_wght400_GRAD0_opsz24.svg";
+import doggo from "../../assets/favicon.png"
+
 
 const Home = ({ handleLogout, resetUser }) => {
-  const PAGE_SIZE = 12;
+  const PAGE_SIZE = 6;
 
   const [page, setPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
@@ -23,8 +26,6 @@ const Home = ({ handleLogout, resetUser }) => {
   const [selectedBreeds, setSelectedBreeds] = useState([]);
   const [match, setMatch] = useState(undefined);
   const [sort, setSort] = useState("asc");
-  //I DID SOMETHING
-  const [dogSearched, setDogSearched] = useState("false");
 
   const toggleSort = () => {
     setSort((prevSort) => (prevSort === "asc" ? "desc" : "asc"));
@@ -34,19 +35,15 @@ const Home = ({ handleLogout, resetUser }) => {
     try {
       const dogSearchResult = await api.dogMatchReq(selectedDogs);
       setMatch(dogs.find((d) => d.id === dogSearchResult.match));
-      toast.success("Found doggos in your area!");
-      //I DID SOMETHING
-      setDogSearched("true");
+      toast.success("Found a match!");
     } catch (error) {
-      toast.error("No doggos in your area");
+      toast.error("Error finding a match :(");
     }
   };
 
   const resetMatch = () => {
     setMatch(undefined);
     setSelectedDogs([]);
-    //I DID SOMETHING
-    setDogSearched("false");
   };
 
   const searchDogs = async () => {
@@ -71,7 +68,7 @@ const Home = ({ handleLogout, resetUser }) => {
     api.expiredSessionHandler(() => {
       resetUser();
     });
-  }, [resetUser]);
+  }, []);
 
   useEffect(() => {
     searchDogs();
@@ -80,13 +77,20 @@ const Home = ({ handleLogout, resetUser }) => {
   return (
     <>
       <main>
+      
         <section id="hero">
           <div className="container">
+            
             <div className="nav__container">
               <nav>
+                
                 <ul>
+                  
+                  
                   <li>
-                    <a href="">About</a>
+                    <a href="https://github.com/henlowgg"
+                      target="_blank"
+                      rel="noopener noreferrer">githoob</a>
                   </li>
 
                   <li>
@@ -100,7 +104,7 @@ const Home = ({ handleLogout, resetUser }) => {
                   </li>
                   <li>
                     <a type="button" onClick={() => handleLogout()}>
-                      Logout
+                      logout
                     </a>
                   </li>
                 </ul>
@@ -109,14 +113,13 @@ const Home = ({ handleLogout, resetUser }) => {
             <div className="hero__text">
               <div className="sub__header">
                 <div className="circle"></div>
-                <h4>Fetch & Rescue Doggos</h4>
+                <h4>rescue.io</h4>
               </div>
               <h1 className="hero__header">
-                We help people find and save dogs from shelters
+              one doggo at a time..
               </h1>
               <p className="hero__intro">
-                Our pledge is to bring x doggos into family homes by the end of
-                2024. For each doggo brought home from a shelter, our Partners
+                Our GPT-5.5 powered doggo.io software helps connect good doggos with loving families. For each goodest boi or bestest girl brought home from a shelter, our Partners
                 at{" "}
                 <a
                   href="https://fetch.com/"
@@ -125,83 +128,74 @@ const Home = ({ handleLogout, resetUser }) => {
                 >
                   fetch.com
                 </a>{" "}
-                will give $50 in rewards from our sponsors of over 500 Brands!
+                are pledging to give over $150 in rewards from our sponsors of over 500 Brands!
               </p>
             </div>
             <div className="image__container">
-              <div>
-                <div>
-                  <h2>rescue search</h2>
-                </div>
+            <div>
+        <div>
+          <h1>find doggos</h1>
+        </div>
 
-                <div>
-                  <div>
-                    <div>
-                      <CustomSelect setSelectedBreeds={setSelectedBreeds} />
-                      <button className="" onClick={toggleSort}>
-                        {sort === "asc" ? (
-                          <Button size={24} color="#300d38" />
-                        ) : (
-                          <Button size={24} color="#300d38" />
-                        )}
-                      </button>
-                    </div>
-                  </div>
-                  <div />
-                  {dogSearched === "false" && (
-                    <div className="sm:text-left w-16 md:w-32 lg:w-48 results__container">
-                      {dogs.map((dog) => (
-                        <DogCard
-                          key={dog.id}
-                          dog={dog}
-                          selected={selectedDogs}
-                          setSelectedDogs={setSelectedDogs}
-                        />
-                      ))}
-                    </div>
-                  )}
-
-                  <div>
-                    <button
-                      onClick={() => setPage((page) => page - 1)}
-                      disabled={page === 0}
-                    >
-                      Prev
-                      {/* <image src={pagePrev} alt="previous page" /> */}
-                    </button>
-                    <p>
-                      {(page + 1).toString()} / {totalPages.toString()}
-                    </p>
-                    <button
-                      onClick={() => setPage((page) => page + 1)}
-                      disabled={page + 1 === totalPages}
-                    >
-                      Next
-                      {/* <image src={pageNext} alt="next page" /> */}
-                    </button>
-                  </div>
-                  {selectedDogs.length > 0 && (
-                    <div>
-                      <button title="Match" onClick={resetMatch}>
-                        {" "}
-                        Reset
-                        {/* <IconTrash size={24} /> */}
-                      </button>
-                      <button title="Match" onClick={getMatch}>
-                        {" "}
-                        Match
-                        {/* <image classNameName="w-8" src={dogIcon} alt="Dog icon" /> */}
-                        <p>{selectedDogs.length}</p>
-                      </button>
-                    </div>
-                  )}
-                </div>
-              </div>
-              {match && (
-                <div>
-                  <MatchCard match={match} resetMatch={resetMatch} />
-                </div>
-              )}
+        <div>
+          <div>
+            <div>
+              <CustomSelect setSelectedBreeds={setSelectedBreeds} />
+              <button onClick={toggleSort}>
+                {sort === "asc" ? (
+                  <next size={24} color="#300d38" />
+                ) : (
+                  <prev size={24} color="#300d38" />
+                )}
+              </button>
+            </div>
+          </div>
+          <div />
+          <div className="results__container">
+            {dogs.map((dog) => (
+              <Card
+                key={dog.id}
+                dog={dog}
+                selected={selectedDogs}
+                setSelectedDogs={setSelectedDogs}
+              />
+            ))}
+          </div>
+          <div>
+            <button
+              onClick={() => setPage((page) => page - 1)}
+              disabled={page === 0}
+            >
+              <image src={prev} alt="previous page" />
+            </button>
+            <p>
+              {(page + 1).toString()} / {totalPages.toString()}
+            </p>
+            <button
+              onClick={() => setPage((page) => page + 1)}
+              disabled={page + 1 === totalPages}
+            >
+              <image src={next} alt="next page" />
+            </button>
+          </div>
+          {selectedDogs.length > 0 && (
+            <div>
+              <button title="Match" onClick={resetMatch}>
+                {/* <IconTrash size={24} /> */}
+              </button>
+              <button title="Match" onClick={getMatch}>
+                {/* <image classNameName="w-8" src={dogIcon} alt="Dog icon" /> */}
+                <p>{selectedDogs.length}</p>
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
+      {match && (
+        <div>
+          <MatchCard match={match} resetMatch={resetMatch} />
+        </div>
+      )}
             </div>
             <div className="carousel">
               <div className="left__carousel"></div>
@@ -259,13 +253,17 @@ const Home = ({ handleLogout, resetUser }) => {
           </div>
         </section>
         <section id="about">
-          <div className="about__container">
-            <div className="about__text">
-              <h2>bring home a doggo, I swear you'll be happy</h2>
+          <div className="about__container relative top-neg-5rem w-width max-w-max-width grid grid-cols-12">
+            <div className="about__text grid-col-span-5 pl-2">
+              <h2>
+                go adopt a doggo right now, seriously, or else...
+              </h2>
             </div>
           </div>
         </section>
       </main>
+
+      
     </>
   );
 };

@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.07fa8087.css",
+    "main.js": "/static/js/main.cd98bb85.js",
+    "static/media/starbucks.webp": "/static/media/starbucks.f6e85a6fa66f8a7bc55e.webp",
+    "static/media/airbnb.webp": "/static/media/airbnb.08c646b7d5628f850376.webp",
+    "static/media/target.webp": "/static/media/target.c58cef3d7ccfcf42cd4e.webp",
+    "static/media/amazon.webp": "/static/media/amazon.20f9be494fb8e3c31f4d.webp",
+    "static/media/Lays.webp": "/static/media/Lays.49b62ec98bffbb64d489.webp",
+    "static/media/BlueMoon.webp": "/static/media/BlueMoon.6ac4e2f82ec20778c253.webp",
+    "index.html": "/index.html",
+    "main.07fa8087.css.map": "/static/css/main.07fa8087.css.map",
+    "main.cd98bb85.js.map": "/static/js/main.cd98bb85.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.07fa8087.css",
+    "static/js/main.cd98bb85.js"
+  ]
+}

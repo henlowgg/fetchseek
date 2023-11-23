@@ -8,7 +8,7 @@ async function makeRequest(url, method, data, params) {
       method,
       data,
       params,
-      withCredentials: true, // Include credentials (cookies) with the request
+      withCredentials: true,
     };
 
     const response = await axios(config);

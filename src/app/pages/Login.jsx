@@ -50,8 +50,9 @@ const Login = ({ setUser }) => {
   return (
     <div>
       <div></div>
-      <div >
+      <div>
         <div>
+          <p>Welcome,</p>
           <h1>rescue</h1>
         </div>
         <div className="h-[2px] w-8 bg-title rounded-sm self-center md:self-start md:h-1" />
@@ -79,6 +80,7 @@ const Login = ({ setUser }) => {
       <ToastContainer />
     </div>
   );
+  
 };
 
 export default Login;
