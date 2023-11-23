@@ -8,20 +8,28 @@ const CustomSelect = ({ setSelectedBreeds }) => {
   const customStyles = {
     control: (base) => ({
       ...base,
-      padding: [8, 6],
+      padding: [6, 4],
       fontSize: 16,
-      outline: "none",
+      outline: "black",
       background: "#FEA901",
       height: "100%",
       minWidth: "250px",
       borderWidth: "2px",
+      border: 0,
+      boxShadow: "2px 7px 14px 0px rgba(0,0,0,0.63)",
+      webkitBoxShadow: "2px 7px 14px 0px rgba(0,0,0,0.63)",
+      mozBoxShadow: "2px 7px 14px 0px rgba(0,0,0,0.63)",
       borderColor: "rgb(228 228 231)",
-      borderStyle: "solid",
+      borderStyle: "none",
       borderRadius: "20px",
+      
     }),
     option: (base, { isFocused }) => ({
       ...base,
-      backgroundColor: isFocused ? "rgb(233 213 255 / 1)" : "white",
+      backgroundColor: isFocused ? "rgb(233 213 255 / 1)" : "#FEA901",
+      borderRadius: "",
+      
+
     }),
   };
 

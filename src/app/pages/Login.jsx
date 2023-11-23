@@ -1,6 +1,6 @@
 import { useState } from "react";
 import InputComponent from "../components/Input";
-import Button from "../components/Button";
+
 import api from "../utils/api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -69,7 +69,7 @@ const Login = ({ setUser }) => {
             type="email"
             handleChange={handleChange}
           />
-          <Button type="submit" text="Login" />
+          <button type="submit" text="Login" />
           <p className={`text-sm text-red-500 ${errorMessage && "opacity-100"}`}>
             {errorMessage}
           </p>

@@ -1,18 +1,15 @@
 import React, { useMemo } from "react";
 import { Dog } from "../utils/types.jsx";
-import Button from "./Button";
 
 import {
   Card,
   CardHeader,
   CardBody,
-  CardFooter,
   Typography,
   Button,
 } from "@material-tailwind/react";
 
 const MatchCard = ({ match, resetMatch }) => {
-  // clicky boi
   const handleClick = () => {
     resetMatch();
   };
@@ -37,23 +34,21 @@ const MatchCard = ({ match, resetMatch }) => {
 
       return paragraph;
     };
-  }, []); 
+  }, []);
+
   return (
-    <Card className="w-96">
-      <CardHeader shadow={false} floated={false} className="h-96">
-      <img
-        src={match.img}
-        alt="Dog image"
-        className="h-full w-full object-cover"
-      />
+    <Card>
+      <CardHeader>
+        <img
+          src={match.img}
+          alt="Dog image"
+        />
       </CardHeader>
       <CardBody>
-      <div>
-      <Typography color="blue-gray" className="font-medium">{match.name}</Typography>
-        <p>
-          {generateDogParagraph(match.name, match.age)}
-        </p>
-      </div>
+        <div>
+          <Typography>{match.name}</Typography>
+          <p>{generateDogParagraph(match.name, match.age)}</p>
+        </div>
       </CardBody>
     </Card>
   );
