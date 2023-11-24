@@ -153,16 +153,15 @@ const Home = ({ handleLogout, resetUser }) => {
                   </div>
                 <div />
               <section>
-                  <dogCard>
-                    {dogs.map((dog) => (
-                      <DogCard
-                        key={dog.id}
-                        dog={dog}
-                        selected={selectedDogs}
-                        setSelectedDogs={setSelectedDogs}
-                      />
-                    ))}
-                  </dogCard>
+              {dogs.map((dog) => (
+  <DogCard
+    key={dog.id}
+    dog={dog}
+    selected={selectedDogs}
+    setSelectedDogs={setSelectedDogs}
+  />
+))}
+
               </section>
                   <div>
                     <button
