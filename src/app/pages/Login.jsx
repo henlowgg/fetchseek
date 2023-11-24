@@ -34,7 +34,7 @@ const Login = ({ setUser }) => {
       try {
         const res = await api.LoginReq(name, email);
         if (res) {
-          toast.success("Yo!");
+          toast.success("Welcome to open.. I mean rescue.ai !!");
           setUser({ name, email });
         }
       } catch (msg) {
@@ -110,39 +110,7 @@ const Login = ({ setUser }) => {
 </div>
 
 
-    // <div>
-      
-    //   <div>
-        
-    //     <div className=""/>
-    //     <form autoComplete="on" onSubmit={handleSubmit}>
-    //       <InputComponent
-    //         label="name"
-    //         value={name}
-    //         type="text"
-    //         handleChange={handleChange}
-    //       />
-    //       <InputComponent
-    //         label="email"
-    //         value={email}
-    //         type="email"
-    //         handleChange={handleChange}
-    //       />
-    //       <button
-    //         type="submit"
-    //         className=""
-    //       >
-    //         Login
-    //       </button>
-    //       <p className={`text-sm text-red-500 mt-2 ${errorMessage && "opacity-100"}`}>
-    //         {errorMessage}
-    //       </p>
-    //     </form>
-    //   </div>
-    //   <div></div>
-    //   {/* ToastContainer for displaying notifications */}
-    //   <ToastContainer />
-    // </div>
+    
   );
   
 };

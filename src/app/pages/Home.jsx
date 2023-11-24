@@ -15,6 +15,7 @@ import Next from "../../assets/images/right.svg";
 import Prev from "../../assets/images/left.svg";
 import Restart from "../../assets/images/restart.svg"
 import doggo from "../../assets/favicon.png";
+import "../../index.scss";
 
 const Home = ({ handleLogout, resetUser }) => {
   const PAGE_SIZE = 12;
@@ -113,11 +114,11 @@ const Home = ({ handleLogout, resetUser }) => {
             <div className="hero__text">
               <div className="sub__header">
                 <div className="circle"></div>
-                <h4>rescue.io</h4>
+                <h4>fetch & rescue</h4>
               </div>
               <h1 className="hero__header">one doggo at a time..</h1>
               <p className="hero__intro">
-                Our GPT-5.5 mid diff doggo.io software helps connect good
+                Our MicrosoftGPT-5 dogg.io software helps connect good
                 doggos with loving families. For each goodest boi or bestest
                 girl brought home from a shelter, our Partners at{" "}
                 <a
@@ -250,7 +251,7 @@ const Home = ({ handleLogout, resetUser }) => {
             </div>
             <div className="right">
               <div className="services">
-                <h5>Sponsors</h5>
+                <h2>Sponsors</h2>
               </div>
             </div>
           </div>

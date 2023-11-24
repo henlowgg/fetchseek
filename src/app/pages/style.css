@@ -213,6 +213,7 @@ meter {
     background: #732284;
     color: white;
     padding: 1rem;
+    border-color: transparent;
     border-radius: 100px;
     text-align: center;
     text-transform: uppercase;
@@ -221,8 +222,8 @@ meter {
 }
 
 .login-card button:hover {
-    background-color: #FFEBBC ;
-    color: black;
+    background-color: #B5AEE0 ;
+    color: white;
     cursor: pointer;
 }
 /* ---------- */
