@@ -117,7 +117,6 @@ nav ul li a{
 
 a:hover {
   color: #890075;
-  text-decoration: overline;
   cursor: pointer;
   cursor: url('./assets/images/pets_FILL0_wght400_GRAD0_opsz24.svg'),auto;
 }
@@ -300,14 +299,15 @@ section .flex {
 //   padding-right: 1rem;
 // }
 
-// section .posts {
-//   margin-bottom: 2rem;
-//   display: grid;
-//   grid-template-columns: repeat(2, 1fr);
-//   grid-template-rows: 1;
-//   gap: 1rem;
-//   justify-content: center;
-// }
+section .posts {
+  
+  margin: 2rem;
+  
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 1;
+  gap: 1rem;
+  justify-content: center;
+}
 
 section .blog-card {
   flex: 1;
