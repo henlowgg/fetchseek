@@ -1,5 +1,5 @@
 import React from "react";
-
+import { ToastContainer, toast } from "react-toastify";
 import { Dog } from "../utils/types";
 
 
@@ -7,10 +7,12 @@ import { Dog } from "../utils/types";
 const DogCard = ({ dog, selected, setSelectedDogs }) => {
   const handleSelect = (id) => {
     if (selected.includes(id)) {
+      toast.info("Removed from favorites :(")
       setSelectedDogs((prevSelectedDogs) =>
         prevSelectedDogs.filter((dogId) => dogId !== id)
       );
     } else {
+      toast.success("Added to Favorites!");
       setSelectedDogs((prevSelectedDogs) => [...prevSelectedDogs, id]);
     }
   };

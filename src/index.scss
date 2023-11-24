@@ -16,7 +16,7 @@
   --fetch-dark-purple: #310C38;
   --fetch-medium-purple: #890075;
   --width: 95%;
-  --max-width: 1920px;
+  --max-width: 1800px;
   --border-radius: 20px;
 }
 
@@ -46,6 +46,8 @@ html, body {
 
 body{
   min-height: 100vh;
+  // min-width: 300px;
+  // max-width: 1920px;
 }
 
 h1{
@@ -60,7 +62,9 @@ h3{
   padding-bottom: 1rem;
 }
 
-
+h6{
+  padding: 1rem;
+}
 
 
 main{
@@ -147,7 +151,7 @@ nav ul li a{
 .hero__text{
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .sub__header{
@@ -178,11 +182,11 @@ nav ul li a{
 .hero__intro{
   grid-column: span 5;
   margin-bottom: 1rem;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Lexend', sans-serif;
   opacity: .8;
   font-size: 2vmax;
   padding-top: .25rem;
-  justify-content: flex-start;
+  justify-content: flex-end;
 }
 
 /* main image container */
@@ -263,6 +267,23 @@ nav ul li a{
 }
 
 /* Cards */
+
+.sortingButton{
+  padding: .3rem;
+  margin-top: 2rem;
+  border-radius: 18px;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  text-align: center;
+  color: grey;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: 2px 7px 14px 0px rgba(0,0,0,0.63);
+  -webkit-box-shadow: 2px 7px 14px 0px rgba(0,0,0,0.63);
+  -moz-box-shadow: 2px 7px 14px 0px rgba(0,0,0,0.63);
+
+}
 
 section {
   // background-color: #f5f5f5; /* Replace with the desired background color */
@@ -465,11 +486,45 @@ section .btn:hover {
 }
 
 @media screen and (max-width:600px){
+  section .posts {
+    margin: 0;
+    padding-bottom: 1rem;
+}
+nav {
+  
+  position: relative;
+  font-size: 12px;
+}
+.hero__intro {
+  grid-column: span 12;
+  
+}
 }
 @media screen and (min-width:600px) and (max-width:767px){
+  section .posts {
+    margin: 0;
+    padding-bottom: 1rem;
+}
+nav {
+  
+  position: relative;
+  font-size: 12px;
+}
+.hero__intro {
+  grid-column: span 12;
+  
+}
 }
 @media screen and (min-width:768px) and (max-width:991px){
-
+  section .posts {
+    margin: 0;
+    padding: 1rem;
+}
+nav {
+  
+  position: relative;
+  font-size: 12px;
+}
 }
 
 @media screen and (min-width:992px) and (max-width:1199px){

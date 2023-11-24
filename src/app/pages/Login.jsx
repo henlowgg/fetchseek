@@ -2,7 +2,7 @@ import { useState } from "react";
 import InputComponent from "../components/Input";
 import "../pages/style.css";
 import api from "../utils/api";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Logo from "../../assets/favicon.png";
 
@@ -27,7 +27,7 @@ const Login = ({ setUser }) => {
 		e.preventDefault();
 
 		if (!checkValidEmail(email)) {
-			setErrorMessage("Please input a valid email");
+			toast.error("Invalid Email Type")
 		}
 
 		void (async () => {
@@ -38,8 +38,8 @@ const Login = ({ setUser }) => {
 					setUser({ name, email });
 				}
 			} catch (msg) {
-				setErrorMessage(msg);
-				toast.error("Fly you fool");
+				
+				toast.info("Ummm, fix your email");
 			}
 		})();
 

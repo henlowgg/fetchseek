@@ -28,9 +28,13 @@ const Home = ({ handleLogout, resetUser }) => {
 	const [match, setMatch] = useState(undefined);
 	const [sort, setSort] = useState("asc");
 	const [displayMatch, setDisplayMatch] = useState(false);
+	const [sortOrder, setSortOrder] = useState("A to Z");
 
 	const toggleSort = () => {
 		setSort((prevSort) => (prevSort === "asc" ? "desc" : "asc"));
+		setSortOrder((prevSortOrder) =>
+			prevSortOrder === "A to Z" ? "Z to A" : "A to Z"
+		);
 	};
 
 	const getMatch = async () => {
@@ -118,7 +122,7 @@ const Home = ({ handleLogout, resetUser }) => {
 								<div className="circle"></div>
 								<h4>fetch & rescue</h4>
 							</div>
-							<h1 className="hero__header">one doggo at a time..</h1>
+							<h1 className="hero__header">Welcome to Rescue.io</h1>
 							<p className="hero__intro">
 								Our MicrosoftGPT-5 dogg.io software helps connect good doggos
 								with loving families. For each goodest boi or bestest girl
@@ -137,18 +141,31 @@ const Home = ({ handleLogout, resetUser }) => {
 						<div>
 							<div>
 								<div>
-									<h3>find doggos</h3>
+									<h3>
+										Use the search bar below to select a specific breed, then
+										favorite the doggos that pop up! Our dogg.io ai algorithm
+										matches you with the best doggos according to your google
+										and Meta analytics, then selects one based on your data!
+									</h3>
+									<h6>
+										Disclaimer: Fetch does not know about us buying your data,
+										and you cannot opt out of data collection after making an
+										account with us.
+									</h6>
 								</div>
+
 								<CustomSelect setSelectedBreeds={setSelectedBreeds} />
-								<button onClick={toggleSort}>
-									{" "}
-									Breed A-Z
+
+								<button className="sortingButton" onClick={toggleSort}>
+									{`Sort Breeds from: ${sortOrder}`}
+
 									{sort === "asc" ? (
-										<next size={24} color="#300d38" />
+										<img img src={Next} />
 									) : (
-										<prev size={24} color="#300d38" />
+										<img img src={Prev} />
 									)}
 								</button>
+
 								<div>
 									<div>
 										<div></div>
