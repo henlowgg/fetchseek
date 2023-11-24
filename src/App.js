@@ -4,7 +4,7 @@ import Login from "./app/pages/Login";
 import Home from "./app/pages/Home";
 import { User } from "./app/utils/types";
 import api from "./app/utils/api";
-import "./index.scss";
+
 
 function App() {
   const USER_KEY = "user";
@@ -34,11 +34,11 @@ function App() {
       const res = await api.LogoutReq();
       if (res === "OK") {
         setUser(undefined);
-        toast.success("Bork Bork");
+        toast.success("Fly you fool");
       }
     } catch (msg) {
       console.log(msg);
-      toast.error("Booo there was an error logging out");
+      toast.error("");
     }
   };
 

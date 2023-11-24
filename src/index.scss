@@ -1,8 +1,8 @@
 
 
 :root {
-  --main-bg-color: #732284;
-  --main-div-color:  #FFEBBC;
+  --main-bg-color: #B5AEE0;
+  --main-div-color:  #fff;
   --cream-color: #F9EFD8;
   --light-purple: #B5AEE0;
   --deep-champagne: #F2D4AC;
@@ -117,6 +117,7 @@ nav ul li a{
 
 a:hover {
   color: #890075;
+  text-decoration: overline;
   cursor: pointer;
   cursor: url('./assets/images/pets_FILL0_wght400_GRAD0_opsz24.svg'),auto;
 }
