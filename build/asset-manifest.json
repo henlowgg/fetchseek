@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.b031b047.css",
-    "main.js": "/static/js/main.83516802.js",
+    "main.css": "/static/css/main.23b3d083.css",
+    "main.js": "/static/js/main.c210ebd1.js",
     "static/media/starbucks.webp": "/static/media/starbucks.f6e85a6fa66f8a7bc55e.webp",
     "static/media/airbnb.webp": "/static/media/airbnb.08c646b7d5628f850376.webp",
     "static/media/target.webp": "/static/media/target.c58cef3d7ccfcf42cd4e.webp",
@@ -13,11 +13,11 @@
     "static/media/restart.svg": "/static/media/restart.7cc6c8f05296ec1cfd6d484047d9e712.svg",
     "static/media/left.svg": "/static/media/left.11f7184846154a9f0354c00d29407dcd.svg",
     "static/media/right.svg": "/static/media/right.73dbd424fe8a6b3e3f925a44789947ed.svg",
-    "main.b031b047.css.map": "/static/css/main.b031b047.css.map",
-    "main.83516802.js.map": "/static/js/main.83516802.js.map"
+    "main.23b3d083.css.map": "/static/css/main.23b3d083.css.map",
+    "main.c210ebd1.js.map": "/static/js/main.c210ebd1.js.map"
   },
   "entrypoints": [
-    "static/css/main.b031b047.css",
-    "static/js/main.83516802.js"
+    "static/css/main.23b3d083.css",
+    "static/js/main.c210ebd1.js"
   ]
 }
