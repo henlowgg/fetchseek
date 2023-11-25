@@ -160,9 +160,9 @@ const Home = ({ handleLogout, resetUser }) => {
 									{`Sort Breeds from: ${sortOrder}`}
 
 									{sort === "asc" ? (
-										<img img src={Next} alt="next"/>
+										<img src={Next} alt="next" />
 									) : (
-										<img img src={Prev} alt="prev"/>
+										<img src={Prev} alt="prev" />
 									)}
 								</button>
 
@@ -193,30 +193,30 @@ const Home = ({ handleLogout, resetUser }) => {
 									<section>
 										{selectedDogs.length > 0 && (
 											<div>
-                        <div className="resetBtnDiv">
-												<button
-													className="resetBtn"
-													title="Match"
-													onClick={resetMatch}
-												>
-													<p>Reset and let's try to find another doggo?</p>
-													
-												</button>
-                        </div>
-                        <div className="matchBtnDiv">
-												<button
-													className="matchBtn"
-													title="Match"
-													onClick={getMatch}
-												>
-													<p>
-														Click me to generate a match!
-														<br></br>
-														<br></br>
-														Number of Selected Doggos: {selectedDogs.length}
-													</p>
-												</button>
-                        </div>
+												<div className="resetBtnDiv">
+													<button
+														className="resetBtn"
+														title="Match"
+														onClick={resetMatch}
+													>
+														<p>Reset and let's try to find another doggo?</p>
+
+													</button>
+												</div>
+												<div className="matchBtnDiv">
+													<button
+														className="matchBtn"
+														title="Match"
+														onClick={getMatch}
+													>
+														<p>
+															Click me to generate a match!
+															<br></br>
+															<br></br>
+															Number of Selected Doggos: {selectedDogs.length}
+														</p>
+													</button>
+												</div>
 											</div>
 										)}
 									</section>
@@ -295,8 +295,8 @@ const Home = ({ handleLogout, resetUser }) => {
 						</div>
 					</div>
 				</section>
-				
-        
+
+
 			</main>
 		</>
 	);
