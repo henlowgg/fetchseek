@@ -16,7 +16,7 @@ const MatchCard = ({ match, resetMatch }) => {
       "Hey whoever is reading this. It's Link, no it's not the dog, it's actually me the dev who made this. Sorry this took so long to turn in, I spent way too much time on it for too little to show, but just wanted to say thank you for even looking at it lol.. I'm looking forward to meeting you all and I genuinely hope my 100+ hours working on this doesn't hurt my chances, have a good one!",
       "Hey, I'm [name]! I may not be the sharpest tool in the shed, but I'm a ray of sunshine. At [age] years old, I'm here to spread joy and laughter. Let's enjoy the simple pleasures of life together!",
       "What's up, bro? I'm [name], your drywall punching new bestie. With [age] years of drinking monster energy, I'm here to have your back against Kyle. Adopt me bro.",
-      "Hey there! I'm [name], the ultimate shopaholic. With [age] years of swiping credit cards, I'm ready to indulge in the latest trends and luxury. Let's hit the shops and live the good life!"
+      "Hey there! I'm [name], and I'm ready to buy all the amazon things with your card. With [age] years of swiping credit cards, I'm ready to indulge in the latest trends and luxury."
     ];
 
     return (name, age) => {
