@@ -41,10 +41,10 @@ const Home = ({ handleLogout, resetUser }) => {
 		try {
 			const dogSearchResult = await api.dogMatchReq(selectedDogs);
 			setMatch(dogs.find((d) => d.id === dogSearchResult.match));
-			toast.success("Found a match!");
+			toast.dark("Found a match!");
 			setDisplayMatch(true);
 		} catch (error) {
-			toast.error("Can't find a match");
+			toast.dark("Can't find a match");
 		}
 	};
 
@@ -68,7 +68,7 @@ const Home = ({ handleLogout, resetUser }) => {
 			const dogResult = await api.getDogsReq(dogSearchResult.resultIds);
 			setDogs(dogResult);
 		} catch (error) {
-			toast.error(error);
+			toast.dark(error);
 		}
 	};
 
@@ -137,6 +137,7 @@ const Home = ({ handleLogout, resetUser }) => {
 								are pledging to give over $150 in rewards from our sponsors of
 								over 500 Brands!
 							</p>
+              
 						</div>
 						<div>
 							<div>
@@ -144,7 +145,7 @@ const Home = ({ handleLogout, resetUser }) => {
 									<h3>
 										Use the search bar below to select a specific breed, then
 										favorite the doggos that pop up! Our dogg.io ai algorithm
-										matches you with the best doggos according to your google
+										matches you with the best doggos according to your Google
 										and Meta analytics, then selects one based on your data!
 									</h3>
 									<h6>
@@ -155,7 +156,7 @@ const Home = ({ handleLogout, resetUser }) => {
 								</div>
 
 								<CustomSelect setSelectedBreeds={setSelectedBreeds} />
-
+               
 								<button className="sortingButton" onClick={toggleSort}>
 									{`Sort Breeds from: ${sortOrder}`}
 
@@ -183,23 +184,23 @@ const Home = ({ handleLogout, resetUser }) => {
 												/>
 											))}
 									</section>
-									<div>
+									<section className="btnSort">
 										<button
 											onClick={() => setPage((page) => page - 1)}
 											disabled={page === 0}
 										>
 											<img src={Prev} alt="previous page" />
 										</button>
-										<p>
+										<div className="">
 											{(page + 1).toString()} / {totalPages.toString()}
-										</p>
+										</div>
 										<button
 											onClick={() => setPage((page) => page + 1)}
 											disabled={page + 1 === totalPages}
 										>
 											<img src={Next} alt="next page" />
 										</button>
-									</div>
+									</section>
 									{selectedDogs.length > 0 && (
 										<div>
 											<button title="Match" onClick={resetMatch}>

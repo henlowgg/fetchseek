@@ -33,11 +33,11 @@ function App() {
 			const res = await api.LogoutReq();
 			if (res === "OK") {
 				setUser(undefined);
-				toast.success("Fly you fool");
+				toast.dark("Fly you fool");
 			}
 		} catch (msg) {
 			console.log(msg);
-			toast.error("");
+			
 		}
 	};
 

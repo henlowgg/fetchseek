@@ -1,6 +1,6 @@
 :root {
-	--main-bg-color: #b5aee0;
-	--main-div-color: #fff;
+	--main-bg-color: #222222;
+	--main-div-color: #131313;
 	--cream-color: #f9efd8;
 	--light-purple: #b5aee0;
 	--deep-champagne: #f2d4ac;
@@ -23,7 +23,7 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: "Lexend";
-	color: var(--text-black);
+	color: var(--text-white);
 	font-weight: 400;
 	letter-spacing: -0.03em;
 	-webkit-font-smoothing: antialiased;
@@ -31,6 +31,7 @@
 	list-style: none;
 	line-height: 110%;
 }
+
 
 html,
 body {
@@ -53,8 +54,16 @@ h1 {
 
 h3 {
 	font-size: clamp(1rem, 2vw, 3rem);
-	text-align: start;
+	// text-align: end;
+  font-size: clamp(.5rem, 2vw, 2rem);
 	padding-bottom: 1rem;
+  color: #b5aee0;
+  text-align: center;
+  // grid-column-start: span 7;
+  // grid-column-end: span 12;
+  // align-items: end;
+  // flex: auto;
+  // grid-row: auto;
 }
 
 h6 {
@@ -95,6 +104,8 @@ main {
 	margin: 1rem 0 2rem 0;
 }
 
+
+
 nav {
 	width: 450px;
 	position: relative;
@@ -113,7 +124,7 @@ nav ul li a {
 a:hover {
 	color: #890075;
 	cursor: pointer;
-	cursor: url("./assets/images/pets_FILL0_wght400_GRAD0_opsz24.svg"), auto;
+	
 }
 
 nav ul li a {
@@ -258,19 +269,17 @@ nav ul li a {
 /* Cards */
 
 .sortingButton {
-	padding: 0.3rem;
+	padding: .5rem;
 	margin-top: 2rem;
-	border-radius: 18px;
+	border-radius: 5px;
 	justify-content: flex-start;
 	align-items: center;
 	display: flex;
 	text-align: center;
-	color: grey;
-	background: transparent;
+	color: var(--light-purple);
+	background: #222222;
 	border-color: transparent;
-	box-shadow: 2px 7px 14px 0px rgba(0, 0, 0, 0.63);
-	-webkit-box-shadow: 2px 7px 14px 0px rgba(0, 0, 0, 0.63);
-	-moz-box-shadow: 2px 7px 14px 0px rgba(0, 0, 0, 0.63);
+	
 }
 
 section {
@@ -325,11 +334,11 @@ section .blog-card {
 	align-content: space-between;
 	width: 100%;
 	border-radius: 1rem;
-	background-color: #ffffff; /* Replace with the desired background color */
+	background-color: whitesmoke; /* Replace with the desired background color */
 	padding: 1.25rem; /* Adjust the padding as needed */
-	box-shadow: 2px 7px 14px 0px rgba(0, 0, 0, 0.63);
-	-webkit-box-shadow: 2px 7px 14px 0px rgba(0, 0, 0, 0.63);
-	-moz-box-shadow: 2px 7px 14px 0px rgba(0, 0, 0, 0.63);
+	box-shadow: 1px 3px 10px 0px rgba(255, 255, 255, 0.63);
+	-webkit-box-shadow: 1px 3px 10px 0px rgba(255, 255, 255, 0.63);
+	-moz-box-shadow: 1px 3px 10px 0px rgba(255, 255, 255, 0.63);
 }
 
 .matchCard{
@@ -341,17 +350,25 @@ section .blog-card {
 	align-content: space-between;
 	width: 100%;
 	border-radius: 1rem;
+  color: #131313;
 	background-color: #ffffff; /* Replace with the desired background color */
 	padding: 1.25rem; /* Adjust the padding as needed */
-	box-shadow: 2px 7px 14px 0px rgba(0, 0, 0, 0.63);
-	-webkit-box-shadow: 2px 7px 14px 0px rgba(0, 0, 0, 0.63);
-	-moz-box-shadow: 2px 7px 14px 0px rgba(0, 0, 0, 0.63);
+	box-shadow: 2px 7px 14px 0px rgba(255, 255, 255, 0.63);
+	-webkit-box-shadow: 2px 7px 14px 0px rgba(255, 255, 255, 0.63);
+	-moz-box-shadow: 2px 7px 14px 0px rgba(255, 255, 255, 0.63);
 }
 
-matchImage{
-  border-radius: 1rem;
-  width: 100%;
-  height: 100%;
+.matchImage{
+  margin-bottom: 0.75rem; /* Adjust the margin as needed */
+	aspect-ratio: 1 / 1;
+	max-height: 15rem; /* Adjust the max-height as needed */
+	object-fit: cover;
+	object-position: bottom;
+	width: auto;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 2rem;
 }
 
 section .blog-card img {
@@ -380,7 +397,7 @@ section .blog-card p {
 	font-size: 1rem; /* Adjust the font size as needed */
 	font-weight: bold;
 	line-height: 1.5;
-	color: #352646; /* Replace with the desired text color */
+	color: var(--main-div-color); /* Replace with the desired text color */
 }
 
 /* Button styles */
@@ -398,10 +415,31 @@ section .btn {
 }
 
 section .btn:hover {
-	background-color: #ff6f00; /* Replace with the desired hover background color */
+	background-color: var(--light-purple); /* Replace with the desired hover background color */
 	cursor: pointer;
 }
 
+section .btnSort {
+	display: flex;
+  grid-row: inherit;
+  width: auto;
+  align-items: center;
+  justify-content: space-around;
+	padding: 0.5rem 1rem;
+	text-align: center;
+  font-family: roboto;
+	text-decoration: none;
+	font-size: 1.2rem; /* Adjust the font size as needed */
+	
+	color: white; /* Replace with the desired text color */
+	background-color: #222222; /* Replace with the desired background color */
+	border-radius: 0.5rem; /* Adjust the border radius as needed */
+}
+
+.nextBtn{
+  color: transparent;
+  
+}
 /* Carousel */
 
 .carousel {
@@ -523,7 +561,3 @@ section .btn:hover {
 @media screen and (min-width: 1200px) {
 }
 
-* {
-	cursor: pointer;
-	cursor: url("./assets/images/pets_FILL0_wght400_GRAD0_opsz24.svg"), auto;
-}

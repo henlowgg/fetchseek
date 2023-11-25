@@ -51,7 +51,7 @@ meter {
 
 /* reset default text opacity of input placeholder */
 ::placeholder {
-	color: unset;
+	color: black;
 }
 
 /* fix the feature of 'hidden' attribute.
@@ -207,6 +207,7 @@ meter {
 .login-card input[type="email"] {
 	border: none;
 	outline: none;
+    color: black;
 	background: rgba(255, 255, 255, 0.3);
 	padding: 1rem 1.5rem;
 	padding-left: calc(1rem * 3.5);
