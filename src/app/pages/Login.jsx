@@ -27,7 +27,7 @@ const Login = ({ setUser }) => {
 		e.preventDefault();
 
 		if (!checkValidEmail(email)) {
-			toast.error("Invalid Email Type")
+			toast.error("Invalid Email Type");
 		}
 
 		void (async () => {
@@ -38,7 +38,6 @@ const Login = ({ setUser }) => {
 					setUser({ name, email });
 				}
 			} catch (msg) {
-				
 				toast.info("Ummm, fix your email");
 			}
 		})();

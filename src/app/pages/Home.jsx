@@ -44,7 +44,7 @@ const Home = ({ handleLogout, resetUser }) => {
 			toast.success("Found a match!");
 			setDisplayMatch(true);
 		} catch (error) {
-			toast.error("Error finding a match :(");
+			toast.error("Can't find a match");
 		}
 	};
 
@@ -278,7 +278,7 @@ const Home = ({ handleLogout, resetUser }) => {
 				<section id="about">
 					<div className="about__container relative top-neg-5rem w-width max-w-max-width grid grid-cols-12">
 						<div className="about__text grid-col-span-5 pl-2">
-							<h2>go adopt a doggo right now, seriously, or else...</h2>
+							<h2>go adopt a doggo right now, seriously...</h2>
 						</div>
 					</div>
 				</section>
