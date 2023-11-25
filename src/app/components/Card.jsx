@@ -7,12 +7,12 @@ import { Dog } from "../utils/types";
 const DogCard = ({ dog, selected, setSelectedDogs }) => {
   const handleSelect = (id) => {
     if (selected.includes(id)) {
-      toast.info("Removed from favorites :(")
+      toast.dark("Removed from favorites :(")
       setSelectedDogs((prevSelectedDogs) =>
         prevSelectedDogs.filter((dogId) => dogId !== id)
       );
     } else {
-      toast.success("Added to Favorites!");
+      toast.dark("Added to Favorites!");
       setSelectedDogs((prevSelectedDogs) => [...prevSelectedDogs, id]);
     }
   };

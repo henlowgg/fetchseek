@@ -27,18 +27,18 @@ const Login = ({ setUser }) => {
 		e.preventDefault();
 
 		if (!checkValidEmail(email)) {
-			toast.error("Invalid Email Type");
+			toast.dark("Invalid Email Type");
 		}
 
 		void (async () => {
 			try {
 				const res = await api.LoginReq(name, email);
 				if (res) {
-					toast.success("Welcome to openA.. I mean rescue.ai !!");
+					toast.dark("Welcome to openA.. I mean rescue.ai !!");
 					setUser({ name, email });
 				}
 			} catch (msg) {
-				toast.info("Ummm, fix your email");
+				toast.dark("Ummm, fix your email");
 			}
 		})();
 

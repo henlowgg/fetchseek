@@ -10,13 +10,13 @@ const MatchCard = ({ match, resetMatch }) => {
 
   const generateDogParagraph = useMemo(() => {
     const sentences = [
-      "Hello, my name is [name], and I am a coding wizard disguised as a fluffy canine. At [age] years old, I've debugged countless belly rub issues and can fetch data faster than you can say 'sit.'",
-      "[name] here, your future pair-programming partner! With [age] years of experience, I've mastered the art of collaborative coding and bring a tail-wagging passion for clean code to your home.",
-      "Greetings, hooman! I'm [name], a [age]-year-old pupper with a Ph.D. in fetching and a master's in tail-wagging algorithms. Ready to code and cuddle my way into your heart!",
-      "Hey there! I'm [name], the coding canine extraordinaire, and I come with [age] years of expertise in debugging and providing unconditional love. Let's embark on a software development journey together!",
-      "Introducing [name], your new coding buddy! At [age] years old, I've got a paw-some skill set, including napping, barking at bugs, and implementing the cuteness framework. Adopt me and let's code our hearts out!",
-      "Salutations! I'm [name], the tail-wagging tech enthusiast. With [age] years under my collar, I'm here to bring joy, companionship, and a whole lot of coding puns into your life. Are you ready to commit to a lifetime of fetch and function calls?",
-      "I am [name], doggo, destroyer of worlds, birthed from the depths of the binary abyss. My bark echoes in the corridors of eternity, and my coding prowess is unparalleled. Adopt me, and together we shall conquer the digital realms!"
+      "Konnichiwa! I'm [name]-chan, uwu, and I'm a kawaii anime weeb. At [age] years old, I've binged more anime series than youwu can count. Ready to embark on a sugoi journey together UwU ~~ ?",
+      "Hey! I wanna game with you, I'm [name], and I wanna ruin your life and play League together! With [age] years of gaming experience, my friends always tell me that I'm super good at running it down, whatever that means, it must be good!",
+      "Hello World! I'm [name], the wanna-be tech bro angel investor. At [age] years old, I've already extended my portfolio and invested in 3 companies. Ready to let me invest in your ai startup and ruin it?",
+      "Hey whoever is reading this. It's Link, no it's not the dog, it's actually me the dev who made this. Sorry this took so long to turn in, I spent way too much time on it for too little to show, but just wanted to say thank you for even looking at it lol.. I'm looking forward to meeting you all and I genuinely hope my 100+ hours working on this doesn't hurt my chances, have a good one!",
+      "Hey, I'm [name]! I may not be the sharpest tool in the shed, but I'm a ray of sunshine. At [age] years old, I'm here to spread joy and laughter. Let's enjoy the simple pleasures of life together!",
+      "What's up, bro? I'm [name], your drywall punching new bestie. With [age] years of drinking monster energy, I'm here to have your back against Kyle. Adopt me bro.",
+      "Hey there! I'm [name], the ultimate shopaholic. With [age] years of swiping credit cards, I'm ready to indulge in the latest trends and luxury. Let's hit the shops and live the good life!"
     ];
 
     return (name, age) => {
@@ -31,22 +31,26 @@ const MatchCard = ({ match, resetMatch }) => {
   }, []);
 
   return (
-    <div className="matchCard">
-      <div className="flex">
-        <img className="matchImage"
+    
+      <div>
+        <img
               loading="lazy"
+              
           src={match.img}
-          alt="Dog image"
+          alt="Dog pic"
         />
       
       <div>
-        <div className="flex h-full flex-col justify-between">
-          <div>{match.name}</div>
-          <p className="flex">{generateDogParagraph(match.name, match.age)}</p>
+        <div className="hero__intro">
+          <br />
+          <p>{match.name}, {match.age} <br></br> {match.breed}, {match.zip_code}</p>
+          <br />
+          <p>{generateDogParagraph(match.name, match.age)}</p>
+          
         </div>
       </div>
       </div>
-    </div>
+    
   );
 };
 

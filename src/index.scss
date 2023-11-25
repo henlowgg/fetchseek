@@ -1,6 +1,6 @@
 :root {
-	--main-bg-color: #b5aee0;
-	--main-div-color: #fff;
+	--main-bg-color: #222222;
+	--main-div-color: #131313;
 	--cream-color: #f9efd8;
 	--light-purple: #b5aee0;
 	--deep-champagne: #f2d4ac;
@@ -23,9 +23,9 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: "Lexend";
-	color: var(--text-black);
+	color: var(--text-white);
 	font-weight: 400;
-	letter-spacing: -0.03em;
+	// letter-spacing: -0.03em;
 	-webkit-font-smoothing: antialiased;
 	text-decoration: none;
 	list-style: none;
@@ -53,8 +53,16 @@ h1 {
 
 h3 {
 	font-size: clamp(1rem, 2vw, 3rem);
-	text-align: start;
+	// text-align: end;
+	font-size: clamp(0.5rem, 2vw, 2rem);
 	padding-bottom: 1rem;
+	color: #b5aee0;
+	text-align: center;
+	// grid-column-start: span 7;
+	// grid-column-end: span 12;
+	// align-items: end;
+	// flex: auto;
+	// grid-row: auto;
 }
 
 h6 {
@@ -113,7 +121,6 @@ nav ul li a {
 a:hover {
 	color: #890075;
 	cursor: pointer;
-	cursor: url("./assets/images/pets_FILL0_wght400_GRAD0_opsz24.svg"), auto;
 }
 
 nav ul li a {
@@ -258,19 +265,16 @@ nav ul li a {
 /* Cards */
 
 .sortingButton {
-	padding: 0.3rem;
+	padding: 0.5rem;
 	margin-top: 2rem;
-	border-radius: 18px;
+	border-radius: 5px;
 	justify-content: flex-start;
 	align-items: center;
 	display: flex;
 	text-align: center;
-	color: grey;
-	background: transparent;
+	color: var(--light-purple);
+	background: #222222;
 	border-color: transparent;
-	box-shadow: 2px 7px 14px 0px rgba(0, 0, 0, 0.63);
-	-webkit-box-shadow: 2px 7px 14px 0px rgba(0, 0, 0, 0.63);
-	-moz-box-shadow: 2px 7px 14px 0px rgba(0, 0, 0, 0.63);
 }
 
 section {
@@ -308,6 +312,8 @@ section .flex {
 //   padding-right: 1rem;
 // }
 
+
+
 section .posts {
 	margin: 2rem;
 
@@ -323,41 +329,51 @@ section .blog-card {
 	justify-content: center;
 	flex-direction: column;
 	align-content: space-between;
+  
 	width: 100%;
 	border-radius: 1rem;
-	background-color: #ffffff; /* Replace with the desired background color */
+	background-color: #222222; /* Replace with the desired background color */
 	padding: 1.25rem; /* Adjust the padding as needed */
-	box-shadow: 2px 7px 14px 0px rgba(0, 0, 0, 0.63);
-	-webkit-box-shadow: 2px 7px 14px 0px rgba(0, 0, 0, 0.63);
-	-moz-box-shadow: 2px 7px 14px 0px rgba(0, 0, 0, 0.63);
+	// box-shadow: 1px 3px 10px 0px rgba(255, 255, 255, 0.63);
+	// -webkit-box-shadow: 1px 3px 10px 0px rgba(255, 255, 255, 0.63);
+	// -moz-box-shadow: 1px 3px 10px 0px rgba(255, 255, 255, 0.63);
 }
 
-.matchCard{
-  flex: 1;
-  margin-top: 1rem;
+.matchCard {
+	display: flex;
+	margin-top: 1rem;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
 	align-content: space-between;
+  font-family: "Lexend";
+  font-style: var(--light-purple);
 	width: 100%;
 	border-radius: 1rem;
-	background-color: #ffffff; /* Replace with the desired background color */
+	color: #131313;
+	background-color: #222222; /* Replace with the desired background color */
 	padding: 1.25rem; /* Adjust the padding as needed */
-	box-shadow: 2px 7px 14px 0px rgba(0, 0, 0, 0.63);
-	-webkit-box-shadow: 2px 7px 14px 0px rgba(0, 0, 0, 0.63);
-	-moz-box-shadow: 2px 7px 14px 0px rgba(0, 0, 0, 0.63);
+	// box-shadow: 2px 7px 14px 0px rgba(255, 255, 255, 0.63);
+	// -webkit-box-shadow: 2px 7px 14px 0px rgba(255, 255, 255, 0.63);
+	// -moz-box-shadow: 2px 7px 14px 0px rgba(255, 255, 255, 0.63);
 }
 
-matchImage{
-  border-radius: 1rem;
-  width: 100%;
-  height: 100%;
+.matchImage {
+	margin-bottom: 0.75rem; /* Adjust the margin as needed */
+	 /* Adjust the max-height as needed */
+	height: auto;
+	object-position: bottom;
+	width: 100%;
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 2rem;
 }
 
 section .blog-card img {
 	margin-bottom: 0.75rem; /* Adjust the margin as needed */
 	aspect-ratio: 1 / 1;
-	max-height: 15rem; /* Adjust the max-height as needed */
+	max-height: 100%; /* Adjust the max-height as needed */
 	object-fit: cover;
 	object-position: bottom;
 	width: auto;
@@ -380,7 +396,8 @@ section .blog-card p {
 	font-size: 1rem; /* Adjust the font size as needed */
 	font-weight: bold;
 	line-height: 1.5;
-	color: #352646; /* Replace with the desired text color */
+  margin-bottom: 1rem;
+	color: white; /* Replace with the desired text color */
 }
 
 /* Button styles */
@@ -392,14 +409,133 @@ section .btn {
 	text-decoration: none;
 	font-size: 1rem; /* Adjust the font size as needed */
 	font-weight: bold;
-	color: #ffffff; /* Replace with the desired text color */
-	background-color: #ff8c00; /* Replace with the desired background color */
+	color: black; /* Replace with the desired text color */
+	background-color: var(--light-purple); /* Replace with the desired background color */
 	border-radius: 0.5rem; /* Adjust the border radius as needed */
 }
 
 section .btn:hover {
-	background-color: #ff6f00; /* Replace with the desired hover background color */
+	background-color: var(--fetch-dark-purple); /* Replace with the desired hover background color */
+  color: white;
 	cursor: pointer;
+}
+
+section .btnSort {
+	display: flex;
+
+	margin-bottom: 2rem;
+	grid-row: inherit;
+	width: auto;
+	align-items: center;
+	justify-content: space-around;
+	padding: 0.5rem 1rem;
+	text-align: center;
+	font-family: roboto;
+	text-decoration: none;
+	font-size: 1.2rem; /* Adjust the font size as needed */
+
+	color: white; /* Replace with the desired text color */
+	background-color: #222222; /* Replace with the desired background color */
+	border-radius: 0.5rem; /* Adjust the border radius as needed */
+}
+
+.nextBtn {
+	display: flex;
+	grid-row: inherit;
+
+	align-items: right;
+
+	padding: 0.25rem 1rem;
+
+	object-fit: cover;
+	border-radius: 2px;
+
+	font-size: 1.2rem; /* Adjust the font size as needed */
+	border-color: transparent;
+	/* Replace with the desired text color */
+	background-color: #222222; /* Replace with the desired background color */
+}
+
+.prevBtn {
+	display: flex;
+	grid-row: inherit;
+
+	align-items: left;
+
+	padding: 0.25rem 1rem;
+
+	object-fit: cover;
+	border-radius: 2px;
+
+	font-size: 1.2rem; /* Adjust the font size as needed */
+	border-color: transparent;
+	/* Replace with the desired text color */
+	background-color: #222222;
+}
+
+.resetBtnDiv {
+	background-color: #131313;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+.resetBtn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+
+	margin-bottom: 2rem;
+	grid-row: inherit;
+	width: auto;
+
+	padding: 0.5rem 1rem;
+	text-align: center;
+	font-family: "Lexend";
+	text-decoration: none;
+	font-size: 1.2rem; /* Adjust the font size as needed */
+
+	color: white; /* Replace with the desired text color */
+	background-color: #222222; /* Replace with the desired background color */
+	border-radius: 0.5rem;
+}
+
+.resetBtn p {
+	color: var(--light-purple);
+}
+
+.matchBtnDiv {
+	background-color: #131313;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+.matchBtn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+
+	margin-bottom: 2rem;
+	grid-row: inherit;
+	width: auto;
+	align-items: center;
+	justify-content: space-around;
+	padding: 0.5rem 1rem;
+	text-align: center;
+	font-family: roboto;
+	text-decoration: none;
+	font-size: 1.2rem; /* Adjust the font size as needed */
+
+	color: white; /* Replace with the desired text color */
+	background-color: #222222; /* Replace with the desired background color */
+	border-radius: 0.5rem;
+}
+
+.matchBtn p {
+	color: var(--light-purple);
 }
 
 /* Carousel */
@@ -521,9 +657,4 @@ section .btn:hover {
 }
 
 @media screen and (min-width: 1200px) {
-}
-
-* {
-	cursor: pointer;
-	cursor: url("./assets/images/pets_FILL0_wght400_GRAD0_opsz24.svg"), auto;
 }

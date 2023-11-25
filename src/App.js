@@ -33,11 +33,11 @@ function App() {
 			const res = await api.LogoutReq();
 			if (res === "OK") {
 				setUser(undefined);
-				toast.success("Fly you fool");
+				toast.dark("Fly you fool");
 			}
 		} catch (msg) {
 			console.log(msg);
-			toast.error("");
+			
 		}
 	};
 
@@ -48,7 +48,18 @@ function App() {
 			) : (
 				<Home handleLogout={handleLogout} resetUser={resetUser} />
 			)}
-			<ToastContainer />
+			<ToastContainer
+position="top-right"
+autoClose={3000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="dark"
+/>
 		</>
 	);
 }
