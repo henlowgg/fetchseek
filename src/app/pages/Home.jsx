@@ -13,8 +13,8 @@ import laysLogo from "../../assets/images/Lays.webp";
 import targetLogo from "../../assets/images/target.webp";
 import Next from "../../assets/images/right.svg";
 import Prev from "../../assets/images/left.svg";
-import Restart from "../../assets/images/restart.svg";
-import doggo from "../../assets/favicon.png";
+
+
 import "../../index.scss";
 
 const Home = ({ handleLogout, resetUser }) => {
@@ -137,14 +137,13 @@ const Home = ({ handleLogout, resetUser }) => {
 								are pledging to give over $150 in rewards from our sponsors of
 								over 500 Brands!
 							</p>
-              
 						</div>
 						<div>
 							<div>
 								<div>
 									<h3>
 										Use the search bar below to select a specific breed, then
-										favorite the doggos that pop up! Our dogg.io ai algorithm
+										favorite the doggos that pop up! After you finish selecting doggos, scroll down to the bottom of the page, and click the button to generate a match. Our dogg.io ai algorithm
 										matches you with the best doggos according to your Google
 										and Meta analytics, then selects one based on your data!
 									</h3>
@@ -156,14 +155,14 @@ const Home = ({ handleLogout, resetUser }) => {
 								</div>
 
 								<CustomSelect setSelectedBreeds={setSelectedBreeds} />
-               
+
 								<button className="sortingButton" onClick={toggleSort}>
 									{`Sort Breeds from: ${sortOrder}`}
 
 									{sort === "asc" ? (
-										<img img src={Next} />
+										<img img src={Next} alt="next"/>
 									) : (
-										<img img src={Prev} />
+										<img img src={Prev} alt="prev"/>
 									)}
 								</button>
 
@@ -184,42 +183,62 @@ const Home = ({ handleLogout, resetUser }) => {
 												/>
 											))}
 									</section>
+
+									{match && (
+										<div className="matchCard">
+											<MatchCard match={match} resetMatch={resetMatch} />
+										</div>
+									)}
+
+									<section>
+										{selectedDogs.length > 0 && (
+											<div>
+                        <div className="resetBtnDiv">
+												<button
+													className="resetBtn"
+													title="Match"
+													onClick={resetMatch}
+												>
+													<p>Reset and let's try to find another doggo?</p>
+													
+												</button>
+                        </div>
+                        <div className="matchBtnDiv">
+												<button
+													className="matchBtn"
+													title="Match"
+													onClick={getMatch}
+												>
+													<p>
+														Click me to generate a match!
+														<br></br>
+														<br></br>
+														Number of Selected Doggos: {selectedDogs.length}
+													</p>
+												</button>
+                        </div>
+											</div>
+										)}
+									</section>
 									<section className="btnSort">
 										<button
 											onClick={() => setPage((page) => page - 1)}
 											disabled={page === 0}
 										>
-											<img src={Prev} alt="previous page" />
+											<img className="prevBtn" src={Prev} alt="previous page" />
 										</button>
-										<div className="">
+										<div>
 											{(page + 1).toString()} / {totalPages.toString()}
 										</div>
 										<button
 											onClick={() => setPage((page) => page + 1)}
 											disabled={page + 1 === totalPages}
 										>
-											<img src={Next} alt="next page" />
+											<img className="nextBtn" src={Next} alt="next page" />
 										</button>
 									</section>
-									{selectedDogs.length > 0 && (
-										<div>
-											<button title="Match" onClick={resetMatch}>
-												<img src={Restart} size={24} alt="Reset Results" />
-											</button>
-											<button title="Match" onClick={getMatch}>
-												{/* doggo get bbutton, aka show me my doggos */}
-												<img classNameName="w-1" src={doggo} alt="Dog icon" />
-												<p>{selectedDogs.length}</p>
-											</button>
-										</div>
-									)}
 								</div>
 							</div>
-							{match && (
-								<div>
-									<MatchCard match={match} resetMatch={resetMatch} />
-								</div>
-							)}
 						</div>
 						<div className="carousel">
 							<div className="left__carousel"></div>
@@ -276,13 +295,8 @@ const Home = ({ handleLogout, resetUser }) => {
 						</div>
 					</div>
 				</section>
-				<section id="about">
-					<div className="about__container relative top-neg-5rem w-width max-w-max-width grid grid-cols-12">
-						<div className="about__text grid-col-span-5 pl-2">
-							<h2>go adopt a doggo right now, seriously...</h2>
-						</div>
-					</div>
-				</section>
+				
+        
 			</main>
 		</>
 	);

@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.62ae0d56.css",
-    "main.js": "/static/js/main.a864e199.js",
+    "main.css": "/static/css/main.dae486ca.css",
+    "main.js": "/static/js/main.9ffbf99e.js",
     "static/media/starbucks.webp": "/static/media/starbucks.f6e85a6fa66f8a7bc55e.webp",
     "static/media/airbnb.webp": "/static/media/airbnb.08c646b7d5628f850376.webp",
     "static/media/target.webp": "/static/media/target.c58cef3d7ccfcf42cd4e.webp",
@@ -9,15 +9,13 @@
     "static/media/Lays.webp": "/static/media/Lays.49b62ec98bffbb64d489.webp",
     "static/media/BlueMoon.webp": "/static/media/BlueMoon.6ac4e2f82ec20778c253.webp",
     "index.html": "/index.html",
-    "static/media/pets_FILL0_wght400_GRAD0_opsz24.svg": "/static/media/pets_FILL0_wght400_GRAD0_opsz24.5e2f7db12247c1bc0409.svg",
-    "static/media/restart.svg": "/static/media/restart.7cc6c8f05296ec1cfd6d484047d9e712.svg",
     "static/media/left.svg": "/static/media/left.11f7184846154a9f0354c00d29407dcd.svg",
     "static/media/right.svg": "/static/media/right.73dbd424fe8a6b3e3f925a44789947ed.svg",
-    "main.62ae0d56.css.map": "/static/css/main.62ae0d56.css.map",
-    "main.a864e199.js.map": "/static/js/main.a864e199.js.map"
+    "main.dae486ca.css.map": "/static/css/main.dae486ca.css.map",
+    "main.9ffbf99e.js.map": "/static/js/main.9ffbf99e.js.map"
   },
   "entrypoints": [
-    "static/css/main.62ae0d56.css",
-    "static/js/main.a864e199.js"
+    "static/css/main.dae486ca.css",
+    "static/js/main.9ffbf99e.js"
   ]
 }
