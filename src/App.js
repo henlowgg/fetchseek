@@ -5,53 +5,52 @@ import Home from "./app/pages/Home";
 import { User } from "./app/utils/types";
 import api from "./app/utils/api";
 
-
 function App() {
-  const USER_KEY = "user";
-  const [user, setUser] = useState();
+	const USER_KEY = "user";
+	const [user, setUser] = useState();
 
-  useEffect(() => {
-    const userJson = localStorage.getItem(USER_KEY);
-    if (userJson) {
-      setUser(JSON.parse(userJson));
-    }
-  }, []);
+	useEffect(() => {
+		const userJson = localStorage.getItem(USER_KEY);
+		if (userJson) {
+			setUser(JSON.parse(userJson));
+		}
+	}, []);
 
-  useEffect(() => {
-    if (user !== undefined) {
-      localStorage.setItem(USER_KEY, JSON.stringify(user));
-    } else {
-      localStorage.removeItem(USER_KEY);
-    }
-  }, [user]);
+	useEffect(() => {
+		if (user !== undefined) {
+			localStorage.setItem(USER_KEY, JSON.stringify(user));
+		} else {
+			localStorage.removeItem(USER_KEY);
+		}
+	}, [user]);
 
-  const resetUser = () => {
-    setUser(undefined);
-  };
+	const resetUser = () => {
+		setUser(undefined);
+	};
 
-  const handleLogout = async () => {
-    try {
-      const res = await api.LogoutReq();
-      if (res === "OK") {
-        setUser(undefined);
-        toast.success("Fly you fool");
-      }
-    } catch (msg) {
-      console.log(msg);
-      toast.error("");
-    }
-  };
+	const handleLogout = async () => {
+		try {
+			const res = await api.LogoutReq();
+			if (res === "OK") {
+				setUser(undefined);
+				toast.success("Fly you fool");
+			}
+		} catch (msg) {
+			console.log(msg);
+			toast.error("");
+		}
+	};
 
-  return (
-    <>
-      {user === undefined ? (
-        <Login setUser={setUser} />
-      ) : (
-        <Home handleLogout={handleLogout} resetUser={resetUser} />
-      )}
-      <ToastContainer />
-    </>
-  );
+	return (
+		<>
+			{user === undefined ? (
+				<Login setUser={setUser} />
+			) : (
+				<Home handleLogout={handleLogout} resetUser={resetUser} />
+			)}
+			<ToastContainer />
+		</>
+	);
 }
 
 export default App;

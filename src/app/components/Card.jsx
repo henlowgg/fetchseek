@@ -1,5 +1,5 @@
 import React from "react";
-
+import { ToastContainer, toast } from "react-toastify";
 import { Dog } from "../utils/types";
 
 
@@ -7,10 +7,12 @@ import { Dog } from "../utils/types";
 const DogCard = ({ dog, selected, setSelectedDogs }) => {
   const handleSelect = (id) => {
     if (selected.includes(id)) {
+      toast.info("Removed from favorites :(")
       setSelectedDogs((prevSelectedDogs) =>
         prevSelectedDogs.filter((dogId) => dogId !== id)
       );
     } else {
+      toast.success("Added to Favorites!");
       setSelectedDogs((prevSelectedDogs) => [...prevSelectedDogs, id]);
     }
   };
@@ -19,7 +21,7 @@ const DogCard = ({ dog, selected, setSelectedDogs }) => {
     
       <div className="flex">
         <div className="max-w-[75rem] px-2 md:px-4 lg:px-6">
-          <div className="posts mb-8 grid grid-cols-2 grid-rows-1 gap-6 sm:flex">
+          <div className="posts mb-8 grid grid-cols-4 grid-rows-1 gap-6 sm:flex">
             
           
       {/* lol, recognize this? */}

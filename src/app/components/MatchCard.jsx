@@ -31,18 +31,20 @@ const MatchCard = ({ match, resetMatch }) => {
   }, []);
 
   return (
-    <div>
-      <div>
-        <img
+    <div className="matchCard">
+      <div className="flex">
+        <img className="matchImage"
+              loading="lazy"
           src={match.img}
           alt="Dog image"
         />
-      </div>
+      
       <div>
-        <div>
+        <div className="flex h-full flex-col justify-between">
           <div>{match.name}</div>
-          <p>{generateDogParagraph(match.name, match.age)}</p>
+          <p className="flex">{generateDogParagraph(match.name, match.age)}</p>
         </div>
+      </div>
       </div>
     </div>
   );
